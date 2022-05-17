@@ -120,7 +120,7 @@ showstringspaces=false
 	\end{equation*}
 	where $(\textbf{1},\textbf{x}^{(B)}, \textbf{1})$ has $j$th component equals to $x_j \mathds{1}_{\{j \in B\}} + \mathds{1}_{\{ j \notin B\}}$. In a similar way, we note $(\textbf{0}, x^{(B)}, \textbf{0})$ the vector in $\mathbb{R}^d$ which equals $x_j$ if $j \in B$ and $ 0 $ otherwise. We will the $d$ consecutive integer set starting from 1 as $\llbracket d \rrbracket$. Weak convergence of processes are denoted by '$\rightsquigarrow$'. The notation $\delta_x$ corresponds to the dirac measure at $x$. We define by $\textbf{X} \in \mathbb{R}^d$ a random vector with law $G$. Let $O = \{O_k\}_{k= 1 ,\dots, K}$ be a partition of $\{1,\dots,d\}$ into $K$ groups and let $s : \{1,\dots,d\} \rightarrow \{1,\dots,K\}$ be an index assignement function defined by $O_k = \{a \in \{1,\dots,d\} : s(a) = k\} = \{i_{k,1}, \dots, i_{k,d_k}\}$ with $d_1+\dots+d_K = d$.
 	
-	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we present AI-block models designed for variable clustering. All proofs are deferred to the Appendix.
+	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we present AI-block models designed for variable clustering. Central to our work is a new metric for variable clustering in AI-block models. Standard clustering techniques employ dissimilariy metric between two variables. In contrast our metric is based on the Sum of Extremal COefficient (SECO) between two groups of variables, a measure that attempts to capture how two groups of variables are independent relative to their extremes. We discuss this in detail in Section \ref{sec:SECO}. In Section \ref{sec:estimation}, we develop a new clustering algorithm based on SECO. It has moderate computational complexity, polynomial in $d$. We probe that SECO can recover correctly the target partition, with high probability. All proofs are deferred to the Appendix.
 	
 	\section{A model for variable clustering}
 	\label{sec:variable_clust}
@@ -262,6 +262,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\end{remark}
 	
 	\section{The SECO similarity metric}
+	\label{sec:SECO}
 		Let $\textbf{X} \sim O$ has a block structure with associated Pickands $A$ which can be expressed as a convex combination of the $K$ Pickands $A^{(O_k)}$. One expect a consistent clustering could be possible when
 		\begin{equation}
 		\label{eq:A_sigma}
@@ -306,7 +307,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	 	\label{eq:independence_non_extreme}
 	 	cov(f_1(X_1), f_2(X_2)) = 0,
 	 \end{equation}
-	 holds for every continuous bounded functions $f_1$ and $f_2$ is equivalent to $\exists f,g$ a continuous and bounded function such that \eqref{eq:independence_non_extreme} is equal to $0$. This statement is known to be false in general but stand as true for the Gaussian case (take $f = g = id$). The prrof of this statement is given in Appendix.
+	 holds for every continuous bounded functions $f_1$ and $f_2$ is equivalent to $\exists f,g$ a continuous and bounded function such that \eqref{eq:independence_non_extreme} is equal to $0$. This statement is known to be false in general but stand as true for the Gaussian case (take $f = g = id$). The formal statement and its proof are given in Appendix \ref{subsec:asympto_indep}.
 	 
 	 The result of \cite{takahashi1994asymptotic} is extended to our framework by $G(\textbf{x}) = G^{(O_1)}(\textbf{x}^{(O_1)}) G^{(O_2)}(\textbf{x}^{(O_2)})$ for any $\textbf{x} = (\textbf{x}^{(O_1)}, \textbf{x}^{(O_2)}) \in \mathbb{R}^d$ if and only if the equation holds for at least one $\textbf{p} = (\textbf{p}^{(O_1)}, \textbf{p}^{(O_2)}) \in \mathbb{R}^d$. Moreover, this result belongs to those who were stated for single components of max-stable random vector $\textbf{X}$ that can be extended for subvectors of max-stable random vector (see Lemma 6 of \cite{papastathopoulos2016conditional} or Exercise 5.5.1 of \cite{resnick2008extreme} for instance).
 	 
@@ -406,6 +407,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\end{proof}
 	
 	\section{Consistent estimation of minimally separated clusters via SECO}
+	\label{sec:estimation}
 	In this section, we propose an estimation approach that utilizes nonparametric estimation of the Pickands dependence function and we use it to recover clusters.
 	Let $\textbf{X}_1, \dots, \textbf{X}_n$ be \emph{i.i.d.} copies of $\textbf{X}$. The estimator that we present is based on the madogam concept, a notion borrowed from geostatistics in order to capture the spatial dependence structure. Our estimator is defined as 
 	\begin{equation}
@@ -512,8 +514,9 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
     
     \appendix
     \section{Proofs}
-    \label{proof}
+    \label{sec:proof}
         \subsection{Proofs of  main results}
+        \label{subsec:main_results}
 		We show here that there exists a unique maximal element $\bar{O}$ in AI-block models. To do that, we show several items concerning the introduced the partition partial order and the partition induced by the equivalence relation $\overset{O \cap S}{\sim}$. Using these properties, we construct an explicit unique maximal element of $\mathcal{L}(\textbf{X})$.
 		\begin{proof}[Proof of Theorem \ref{thm:unicity}]
 		For the first item, if $\textbf{X} \sim O$, then the partition $O$ induces mutually independent random vectors. As $S$ is a sub-partition of $O$, it also generates a partition where vectors are mutually independent.
@@ -759,6 +762,7 @@ C_{\Pi} : & [0,1]^d & \longrightarrow & [0,1] \\
 	\end{proof}
 	
 	\subsection{Proof of proposition \ref{prop:concentration_inequality}}
+	\label{subsec:proof_concent_ineq}
 	Technical details of this proof will be subdivised in some lemmas of which the combined use will gives the statement of Proposition \ref{prop:concentration_inequality}. The first lemma gives an upper bound of $|\hat{\theta}_n - \theta|$ with respect to $|\hat{\nu}_n(d^{-1},\dots, d^{-1}) - \nu(d^{-1},\dots, d^{-1})|$. This follows from the link between the Pickands dependence function and the madogram.
 	\begin{lemma}
 		\label{lem:upper_bounds_ext_coeff}
@@ -831,6 +835,7 @@ C_{\Pi} : & [0,1]^d & \longrightarrow & [0,1] \\
 	Combine Lemma \ref{lem:upper_bounds_ext_coeff} and Lemma \ref{lem:mado_concent} gives Proposition \ref{prop:concentration_inequality}.
 	
 	\subsection{Asymptotic independence between multivariate extreme distribution}
+	\label{subsec:asympto_indep}
 	In this subsection, we extend the result given in Theorem 2.1 of \cite{takahashi1994asymptotic} for asymptotic independence between extreme random vector. The used arguments are similar of those used in the proof in \cite{takahashi1994asymptotic}. We make extensive use of the following result (see, for example \cite{10.1214/aop/1176993666} and the proof of Theorem 5.3.1 of \cite{galambos1978asymptotic}) \emph{i.e.} $F \in D(G)$ is equivalent to
 	\begin{equation}
 		\label{eq:app_galambos}
