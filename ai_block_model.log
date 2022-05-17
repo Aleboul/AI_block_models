@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.2.2)  5 MAY 2022 17:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.31)  17 MAY 2022 10:37
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **ai_block_model.tex
 (./ai_block_model.tex
@@ -62,9 +62,9 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language8) on input line 105.
+(babel)             (\language3) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language8) on input line 108.
+(babel)             (\language3) on input line 108.
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/euscript.sty
 Package: euscript 2009/06/22 v3.00 Euler Script fonts
@@ -651,7 +651,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 zlibrarytrees.code.tex
 File: tikzlibrarytrees.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 26.
+Package hyperref Info: Option `colorlinks' set `true' on input line 25.
+ (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
 \c@definition=\count299
 \c@axiom=\count300
 \c@lemma=\count301
@@ -662,7 +667,6 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 26.
 \c@innerassumption=\count306
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 6
 1.
-
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
@@ -810,65 +814,64 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
 09.
 
-(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
 21.
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8
-]
+) [2] [3]
+[4] [5] [6] [7] [8] [9]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 347.
- [9]
-[10] [11] (./ai_block_model.bbl [12] [13]) [14] [15] [16] [17] [18] [19]
-[20] [21] [22] [23] [24] [25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 892.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 892.
- (./ai_block_model.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 892.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 892.
+put line 369.
+ [10] [11] [12] [13] (./ai_block_model.bbl [14] [15]
+[16] [17]) [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 913.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 913.
+
+(./ai_block_model.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 913.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 913.
 Package rerunfilecheck Info: File `ai_block_model.out' has not changed.
-(rerunfilecheck)             Checksum: 8F9D76E2CD3AEB9966B3FAD5A73148AC;706.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 892.
+(rerunfilecheck)             Checksum: 0267434331FE9D46FB2A4952D42A44A5;706.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 913.
  ) 
 Here is how much of TeX's memory you used:
- 20475 strings out of 483040
- 367918 string characters out of 5962427
- 620559 words of memory out of 5000000
- 34974 multiletter control sequences out of 15000+600000
- 543915 words of font info for 67 fonts, out of 8000000 for 9000
+ 20617 strings out of 483040
+ 370228 string characters out of 5962426
+ 623071 words of memory out of 5000000
+ 35084 multiletter control sequences out of 15000+600000
+ 543747 words of font info for 66 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 60i,17n,60p,1596b,873s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/aboulin/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.6
-00pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/stmaryrd/stmary8.pfb>
-Output written on ai_block_model.pdf (25 pages, 343888 bytes).
+ 60i,17n,60p,2312b,871s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/boulin/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.60
+0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/stmaryrd/stmary8.pfb>
+Output written on ai_block_model.pdf (28 pages, 351802 bytes).
 PDF statistics:
- 437 PDF objects out of 1000 (max. 8388607)
- 382 compressed objects within 4 object streams
- 109 named destinations out of 1000 (max. 500000)
+ 536 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
+ 139 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

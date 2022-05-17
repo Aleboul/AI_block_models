@@ -3,46 +3,50 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ai_block_model.aux
 The style file: apalike.bst
 Database file #1: pick.bib
+Repeated entry---line 524 of file pick.bib
+ : @article{engelke2020structure
+ :                              ,
+I'm skipping whatever remains of this entry
 Warning--empty institution in galambos1978asymptotic
-You've used 25 entries,
+You've used 47 entries,
             1935 wiz_defined-function locations,
-            634 strings with 8034 characters,
-and the built_in function-call counts, 9886 in all, are:
-= -- 966
-> -- 389
-< -- 19
-+ -- 132
-- -- 125
-* -- 857
-:= -- 1731
-add.period$ -- 79
-call.type$ -- 25
-change.case$ -- 179
-chr.to.int$ -- 24
-cite$ -- 26
-duplicate$ -- 362
-empty$ -- 710
-format.name$ -- 166
-if$ -- 1930
+            754 strings with 11184 characters,
+and the built_in function-call counts, 18796 in all, are:
+= -- 1870
+> -- 709
+< -- 37
++ -- 236
+- -- 229
+* -- 1611
+:= -- 3246
+add.period$ -- 146
+call.type$ -- 47
+change.case$ -- 335
+chr.to.int$ -- 46
+cite$ -- 48
+duplicate$ -- 701
+empty$ -- 1349
+format.name$ -- 306
+if$ -- 3686
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 128
-num.names$ -- 79
-pop$ -- 144
+missing$ -- 53
+newline$ -- 238
+num.names$ -- 145
+pop$ -- 278
 preamble$ -- 1
-purify$ -- 182
+purify$ -- 343
 quote$ -- 0
-skip$ -- 272
+skip$ -- 540
 stack$ -- 0
-substring$ -- 741
-swap$ -- 35
-text.length$ -- 3
+substring$ -- 1457
+swap$ -- 88
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 142
+type$ -- 266
 warning$ -- 1
-while$ -- 81
+while$ -- 163
 width$ -- 0
-write$ -- 327
-(There was 1 warning)
+write$ -- 611
+(There was 1 error message)

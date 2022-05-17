@@ -17,113 +17,154 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{saunders2021regionalisation}
-\citation{10.1214/20-EJS1689}
-\citation{bernard2013}
-\citation{bador2015}
-\citation{NIPS2017_37d097ca}
+\citation{resnick2008extreme,beirlant2004statistics,de2006extreme}
+\citation{balkema1977max}
+\citation{pickands1981multivariate}
+\citation{huang1992statistics}
+\citation{naveau2009modelling}
+\citation{gudendorf2010}
+\citation{bucher2011new,gudendorf2012nonparametric,MARCON20171,escobar2018local}
+\citation{goix2015learning,simpson2020determining,meyer2021sparse}
+\citation{gissibl2018max,engelke2020graphical,segers2020one}
+\citation{chautru2015dimension,drees2021principal}
+\citation{cooley2019decompositions,janssen2020k}
+\citation{pollard1981strong}
+\citation{janssen2020k}
+\citation{bernard2013clustering,bador2015spatial,saunders2021regionalisation}
 \babel@aux{british}{}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Notations}{1}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Notations}{2}{section*.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}A model for variable clustering}{2}{section.2}\protected@file@percent }
 \newlabel{sec:variable_clust}{{2}{2}{A model for variable clustering}{section.2}{}}
 \@writefile{toc}{\contentsline {paragraph}{2.1- extreme value theory}{2}{section*.2}\protected@file@percent }
-\newlabel{eq:ev_cop}{{1}{2}{2.1- extreme value theory}{equation.2.1}{}}
 \citation{gudendorf2010}
-\@writefile{toc}{\contentsline {paragraph}{2.2- AI-block models}{3}{section*.3}\protected@file@percent }
-\newlabel{lem:Cevt}{{1}{3}{}{lemma.1}{}}
+\citation{le2018dependence,lalancette2021rank}
+\newlabel{eq:domain_attraction}{{1}{3}{2.1- extreme value theory}{equation.2.1}{}}
+\newlabel{eq:ev_cop}{{2}{3}{2.1- extreme value theory}{equation.2.2}{}}
 \citation{hofert2018hierarchical}
-\newlabel{eq:mutual_indep_stdf}{{2}{4}{2.2- AI-block models}{equation.2.2}{}}
-\citation{falk2010laws}
+\citation{resnick2007heavy}
+\citation{lindskog2004multivariate}
+\@writefile{toc}{\contentsline {paragraph}{2.2- AI-block models}{4}{section*.3}\protected@file@percent }
+\newlabel{lem:Cevt}{{1}{4}{}{lemma.1}{}}
+\newlabel{eq:mutual_indep_stdf}{{3}{4}{2.2- AI-block models}{equation.2.3}{}}
 \newlabel{thm:unicity}{{1}{5}{}{theorem.1}{}}
-\newlabel{prop:ineq}{{1}{5}{}{proposition.1}{}}
+\citation{NIPS2017_37d097ca}
+\citation{falk2010laws}
 \citation{resnick2008extreme}
-\@writefile{toc}{\contentsline {section}{\numberline {3}The SECO similarity metric}{6}{section.3}\protected@file@percent }
-\newlabel{eq:A_sigma}{{3}{6}{The SECO similarity metric}{equation.3.3}{}}
-\newlabel{prop:oracle}{{2}{6}{}{proposition.2}{}}
-\newlabel{eq:oracle}{{4}{6}{}{equation.3.4}{}}
-\citation{Takahashi1987SomePO}
+\newlabel{prop:ineq}{{1}{6}{}{proposition.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}The SECO similarity metric}{7}{section.3}\protected@file@percent }
+\newlabel{eq:A_sigma}{{4}{7}{The SECO similarity metric}{equation.3.4}{}}
+\newlabel{prop:oracle}{{2}{7}{}{proposition.2}{}}
+\newlabel{eq:oracle}{{5}{7}{}{equation.3.5}{}}
+\newlabel{eq:seco_prelude}{{6}{7}{The SECO similarity metric}{equation.3.6}{}}
+\citation{Takahashi1987SomePO,takahashi1994asymptotic}
 \citation{takahashi1994asymptotic}
+\citation{papastathopoulos2016conditional}
+\citation{resnick2008extreme}
+\newlabel{eq:independence}{{7}{8}{The SECO similarity metric}{equation.3.7}{}}
+\newlabel{eq:independence_non_extreme}{{8}{8}{The SECO similarity metric}{equation.3.8}{}}
 \citation{engelke2020graphical}
 \citation{10.1093/biomet/77.2.245}
 \citation{10.2307/2345748}
 \citation{COOLEY20102103}
 \citation{HUSLER1989283}
+\newlabel{eq:SECO}{{10}{9}{The SECO similarity metric}{equation.3.10}{}}
+\newlabel{eq:MSECO}{{11}{9}{The SECO similarity metric}{equation.3.11}{}}
+\newlabel{ass:A}{{A}{9}{}{innerassumption.1}{}}
 \citation{NIPS2017_37d097ca}
-\citation{engelke2020graphical}
-\citation{asenova2021inference}
-\citation{segers2020one}
-\citation{engelke2020structure}
+\citation{engelke2020graphical,asenova2021inference,segers2020one,engelke2020structure}
 \citation{lauritzen1996graphical}
-\newlabel{ass:A}{{A}{8}{}{innerassumption.1}{}}
-\newlabel{rem:tree_model}{{4}{8}{}{remark.4}{}}
-\newlabel{rem:gaussian_copula}{{5}{8}{}{remark.5}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Recursive algorithm to cluster with $K$ unknown}}{9}{algorithm.1}\protected@file@percent }
-\newlabel{alg:rec}{{1}{9}{The SECO similarity metric}{algorithm.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Consistent estimation of minimally separated clusters via SECO}{10}{section.4}\protected@file@percent }
-\newlabel{eq:MSECO}{{6}{10}{Consistent estimation of minimally separated clusters via SECO}{equation.4.6}{}}
-\newlabel{thm:weak_conv}{{3}{11}{}{theorem.3}{}}
-\newlabel{prop:concentration_inequality}{{3}{11}{}{proposition.3}{}}
+\newlabel{rem:tree_model}{{4}{10}{}{remark.4}{}}
+\newlabel{rem:gaussian_copula}{{5}{10}{}{remark.5}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Recursive algorithm to cluster with $K$ unknown}}{11}{algorithm.1}\protected@file@percent }
+\newlabel{alg:rec}{{1}{11}{The SECO similarity metric}{algorithm.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Consistent estimation of minimally separated clusters via SECO}{11}{section.4}\protected@file@percent }
+\newlabel{thm:weak_conv}{{3}{12}{}{theorem.3}{}}
+\newlabel{prop:concentration_inequality}{{3}{13}{}{proposition.3}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Split procedure with $A$ unknown}}{13}{algorithm.2}\protected@file@percent }
+\newlabel{alg:rec_pratic}{{2}{13}{Consistent estimation of minimally separated clusters via SECO}{algorithm.2}{}}
+\newlabel{prop:exact_recovery}{{4}{13}{}{proposition.4}{}}
+\citation{NIPS2017_37d097ca}
+\citation{engelke2020structure}
 \bibstyle{apalike}
 \bibdata{pick}
 \bibcite{asenova2021inference}{Asenova et~al., 2021}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Split procedure with $A$ unknown}}{12}{algorithm.2}\protected@file@percent }
-\newlabel{alg:rec_pratic}{{2}{12}{Consistent estimation of minimally separated clusters via SECO}{algorithm.2}{}}
-\newlabel{prop:exact_recovery}{{4}{12}{}{proposition.4}{}}
-\newlabel{eq:condition_consistent_recovery}{{9}{12}{}{equation.4.9}{}}
-\newlabel{corr:exact_recovery}{{1}{12}{}{corollary.1}{}}
-\bibcite{bador2015}{Bador et~al., 2015}
-\bibcite{bernard2013}{Bernard et~al., 2013}
+\bibcite{bador2015spatial}{Bador et~al., 2015}
+\newlabel{eq:condition_consistent_recovery}{{14}{14}{}{equation.4.14}{}}
+\newlabel{corr:exact_recovery}{{1}{14}{}{corollary.1}{}}
+\bibcite{balkema1977max}{Balkema and Resnick, 1977}
+\bibcite{beirlant2004statistics}{Beirlant et~al., 2004}
+\bibcite{bernard2013clustering}{Bernard et~al., 2013}
+\bibcite{bucher2011new}{B{\"u}cher et~al., 2011}
+\bibcite{chautru2015dimension}{Chautru, 2015}
 \bibcite{10.2307/2345748}{Coles and Tawn, 1991}
 \bibcite{COOLEY20102103}{Cooley et~al., 2010}
+\bibcite{cooley2019decompositions}{Cooley and Thibaud, 2019}
+\bibcite{de2006extreme}{De~Haan et~al., 2006}
+\bibcite{drees2021principal}{Drees and Sabourin, 2021}
 \bibcite{engelke2020graphical}{Engelke and Hitz, 2020}
 \bibcite{engelke2020structure}{Engelke and Volgushev, 2020}
+\bibcite{escobar2018local}{Escobar-Bach et~al., 2018}
 \bibcite{falk2010laws}{Falk et~al., 2010}
 \bibcite{galambos1978asymptotic}{Galambos, 1978}
+\bibcite{gissibl2018max}{Gissibl and Kl{\"u}ppelberg, 2018}
+\bibcite{goix2015learning}{Goix et~al., 2015}
 \bibcite{gudendorf2010}{Gudendorf and Segers, 2010}
+\bibcite{gudendorf2012nonparametric}{Gudendorf and Segers, 2012}
 \bibcite{hofert2018hierarchical}{Hofert et~al., 2018}
+\bibcite{huang1992statistics}{Huang, 1992}
 \bibcite{HUSLER1989283}{Hüsler and Reiss, 1989}
-\bibcite{10.1214/20-EJS1689}{Janßen and Wan, 2020}
+\bibcite{janssen2020k}{Jan{\ss }en and Wan, 2020}
+\bibcite{lalancette2021rank}{Lalancette et~al., 2021}
 \bibcite{lauritzen1996graphical}{Lauritzen, 1996}
+\bibcite{le2018dependence}{Le et~al., 2018}
+\bibcite{lindskog2004multivariate}{Lindskog, 2004}
 \bibcite{MARCON20171}{Marcon et~al., 2017}
 \bibcite{marshall1983}{Marshall and Olkin, 1983a}
 \bibcite{10.1214/aop/1176993666}{Marshall and Olkin, 1983b}
+\bibcite{meyer2021sparse}{Meyer and Wintenberger, 2021}
+\bibcite{naveau2009modelling}{Naveau et~al., 2009}
+\bibcite{papastathopoulos2016conditional}{Papastathopoulos and Strokorb, 2016}
+\bibcite{pickands1981multivariate}{Pickands, 1981}
+\bibcite{pollard1981strong}{Pollard, 1981}
 \bibcite{resnick2008extreme}{Resnick, 2008}
+\bibcite{resnick2007heavy}{Resnick, 2007}
 \bibcite{NIPS2017_37d097ca}{Ryabko, 2017}
 \bibcite{saunders2021regionalisation}{Saunders et~al., 2021}
 \bibcite{segers2020one}{Segers, 2020}
+\bibcite{simpson2020determining}{Simpson et~al., 2020}
 \bibcite{Takahashi1987SomePO}{Takahashi, 1987}
 \bibcite{takahashi1994asymptotic}{Takahashi, 1994}
 \bibcite{10.1093/biomet/77.2.245}{Tawn, 1990}
 \bibcite{bestbook}{van~der Vaart et~al., 1996}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Proofs}{14}{appendix.A}\protected@file@percent }
-\newlabel{proof}{{A}{14}{Proofs}{appendix.A}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Proofs of main results}{14}{subsection.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Proofs}{18}{appendix.A}\protected@file@percent }
+\newlabel{proof}{{A}{18}{Proofs}{appendix.A}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Proofs of main results}{18}{subsection.A.1}\protected@file@percent }
 \citation{marshall1983}
 \citation{resnick2008extreme}
-\newlabel{eq:association}{{10}{16}{Proofs of main results}{equation.A.10}{}}
+\newlabel{eq:association}{{15}{19}{Proofs of main results}{equation.A.15}{}}
 \citation{bestbook}
 \citation{MARCON20171}
 \citation{bestbook}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Diagram of composition of function.}}{18}{figure.1}\protected@file@percent }
-\newlabel{fig:diagram}{{1}{18}{Diagram of composition of function}{figure.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Proofs of auxiliary results}{21}{appendix.B}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Extreme value copula}{21}{subsection.B.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Proof of proposition \ref  {prop:concentration_inequality}}{22}{subsection.B.2}\protected@file@percent }
-\newlabel{lem:upper_bounds_ext_coeff}{{2}{22}{}{lemma.2}{}}
-\newlabel{lem:mado_concent}{{3}{22}{}{lemma.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Diagram of composition of function.}}{22}{figure.1}\protected@file@percent }
+\newlabel{fig:diagram}{{1}{22}{Diagram of composition of function}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Proofs of auxiliary results}{24}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}extreme-value copula}{24}{subsection.B.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Proof of proposition \ref  {prop:concentration_inequality}}{25}{subsection.B.2}\protected@file@percent }
+\newlabel{lem:upper_bounds_ext_coeff}{{2}{25}{}{lemma.2}{}}
+\newlabel{lem:mado_concent}{{3}{26}{}{lemma.3}{}}
 \citation{takahashi1994asymptotic}
 \citation{takahashi1994asymptotic}
 \citation{10.1214/aop/1176993666}
 \citation{galambos1978asymptotic}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Asymptotic independence between multivariate extreme distribution}{23}{subsection.B.3}\protected@file@percent }
 \citation{takahashi1994asymptotic}
-\newlabel{eq:app_galambos}{{11}{24}{Asymptotic independence between multivariate extreme distribution}{equation.B.11}{}}
-\newlabel{thm:ext_takahashi}{{4}{24}{}{theorem.4}{}}
-\newlabel{eq:app_product}{{12}{24}{}{equation.B.12}{}}
-\newlabel{eq:app_weak_conv}{{13}{24}{}{equation.B.13}{}}
-\newlabel{eq:app_product_onepoint}{{14}{24}{}{equation.B.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Asymptotic independence between multivariate extreme distribution}{27}{subsection.B.3}\protected@file@percent }
+\newlabel{eq:app_galambos}{{16}{27}{Asymptotic independence between multivariate extreme distribution}{equation.B.16}{}}
+\newlabel{thm:ext_takahashi}{{4}{27}{}{theorem.4}{}}
+\newlabel{eq:app_product}{{17}{27}{}{equation.B.17}{}}
+\newlabel{eq:app_weak_conv}{{18}{27}{}{equation.B.18}{}}
+\newlabel{eq:app_product_onepoint}{{19}{27}{}{equation.B.19}{}}
 \citation{takahashi1994asymptotic}
 \citation{takahashi1994asymptotic}
-\newlabel{rmk:takahashi}{{7}{25}{}{remark.7}{}}
-\newlabel{eq:app_takahashi}{{15}{25}{}{equation.B.15}{}}
+\newlabel{rmk:takahashi}{{7}{28}{}{remark.7}{}}
+\newlabel{eq:app_takahashi}{{20}{28}{}{equation.B.20}{}}
