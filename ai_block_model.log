@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.31)  17 MAY 2022 20:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.3.31)  18 MAY 2022 07:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -835,13 +835,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 918.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 918.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 918.
 Package rerunfilecheck Info: File `ai_block_model.out' has not changed.
-(rerunfilecheck)             Checksum: 0267434331FE9D46FB2A4952D42A44A5;706.
+(rerunfilecheck)             Checksum: D3F2CA1ADD472D02CEA85509DD490D7A;705.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 918.
  ) 
 Here is how much of TeX's memory you used:
  20623 strings out of 483040
  370335 string characters out of 5962426
- 623439 words of memory out of 5000000
+ 623436 words of memory out of 5000000
  35089 multiletter control sequences out of 15000+600000
  543747 words of font info for 66 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
@@ -868,10 +872,10 @@ onts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/stmaryrd/stmary8.pfb>
-Output written on ai_block_model.pdf (29 pages, 353053 bytes).
+Output written on ai_block_model.pdf (29 pages, 352760 bytes).
 PDF statistics:
- 541 PDF objects out of 1000 (max. 8388607)
- 482 compressed objects within 5 object streams
+ 536 PDF objects out of 1000 (max. 8388607)
+ 477 compressed objects within 5 object streams
  140 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
