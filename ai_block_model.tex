@@ -23,6 +23,7 @@
     linktoc=all,
     citecolor=blue
            }
+\hypersetup{breaklinks=true}
 \usepackage{cite}
 \onehalfspacing
 \setlength\parskip{0.2cm}
@@ -106,11 +107,11 @@ showstringspaces=false
 
 \begin{document}
 	\section{Introduction}
-	Multivariate extremes arise when one or more of rare extremes events occur simultaneously. These events are of prime interest to assess natural hazard stemming from heavy rainfall, wind storms and earthquakes since they are driven by joint extremes of a number meteorologial variables. It is well known from the classical theory that multivariate distributions can be decomposed into two distinct parts : the analysis of marginal distributions and the analysis of the dependence structure described by the copula function. Results from the extreme-value theory show that the possible dependence structures of extremes have to satisfy certain constraints. Indeed, the possible dependence structure may be described in various equivalent ways (\cite{resnick2008extreme, beirlant2004statistics, de2006extreme}) : by the exponent measure $\Lambda$ (\cite{balkema1977max}), by the Pickands dependence function $A$ (\cite{pickands1981multivariate}), by the stable tail dependence function $L$ (\cite{huang1992statistics}), by the madogram (\cite{naveau2009modelling}), by the extreme value copula $C$ (\cite{gudendorf2010}).
+	Multivariate extremes arise when one or more of rare extremes events occur simultaneously. These events are of prime interest to assess natural hazard stemming from heavy rainfall, wind storms and earthquakes since they are driven by joint extremes of a number meteorologial variables. It is well known from the classical theory that multivariate distributions can be decomposed into two distinct parts : the analysis of marginal distributions and the analysis of the dependence structure described by the copula function. Results from the extreme-value theory show that the possible dependence structure of extremes have to satisfy certain constraints. Indeed, the dependence structure may be described in various equivalent ways (\cite{resnick2008extreme, beirlant2004statistics, de2006extreme}) : by the exponent measure $\Lambda$ (\cite{balkema1977max}), by the Pickands dependence function $A$ (\cite{pickands1981multivariate}), by the stable tail dependence function $L$ (\cite{huang1992statistics}), by the madogram (\cite{naveau2009modelling}), by the extreme value copula $C$ (\cite{gudendorf2010}).
 	
-	The dependence structure between extreme observations can be complex and characterized by different notions from the ones arises in the classical theory. For this reason, recent works bring various notions to the framework of extreme such as sparsity (\cite{goix2015learning, simpson2020determining, meyer2021sparse}), conditional independence and graphical models (\cite{gissibl2018max, engelke2020graphical, segers2020one}), dimensionality reduction (\cite{chautru2015dimension, drees2021principal}) and unsupervised learning (\cite{cooley2019decompositions, janssen2020k}). In this work, we are concerned about variable clustering as a tool for learning the dependence structure of multivariate extreme and bridge important ideas from modern statistics and machine learning to the framework of extreme-value theory.
+	The dependence structure between extreme observations can be complex and characterized by different notions from the ones arises in the classical theory as given afore. For this reason, recent works bring various notions to the framework of extreme such as sparsity (\cite{goix2015learning, simpson2020determining, meyer2021sparse}), conditional independence and graphical models (\cite{gissibl2018max, engelke2020graphical, segers2020one}), dimensionality reduction (\cite{chautru2015dimension, drees2021principal}) and unsupervised learning (\cite{cooley2019decompositions, janssen2020k}). In this work, we are concerned about variable clustering as a tool for learning the dependence structure of multivariate extreme and bridge important ideas from modern statistics and machine learning to the framework of extreme-value theory.
 	
-	The problem of variable clustering is that of grouping similar components of a $d$-dimensional random vector $\textbf{X} = (X_1,\dots,X_d)$. Those groups are referred as clusters and unknown to the statistician who wants to recover them from $\textbf{X}_1, \dots, \textbf{X}_n$, $n$ independent copies of $\textbf{X}$. Loosely speaking, we are able to perform clustering in two distinguish cases : by partitionning the set $\{1,\dots, n\}$ of row indices or by partitioning with respect to column indices the set $\{1,\dots,d\}$. The first problem will be designated as the data clustering problem whereas the second corresponds to the variable clustering problem discussed here so far. In data clustering, clusters are clouds of observations and corresponds to respective realizations of one of the mixture distribution, which is a distribution on the whole $\mathbb{R}^d$. In this framework with \emph{i.i.d.} replications, \cite{pollard1981strong} shows the strong consistency of $k$-means clustering where the result was replicated in the context of extreme by \cite{janssen2020k} for spherical $k$-means. In contrast, in variable clustering, the effort is to define cluster models relate to subsets of components $X_j$, of $\textbf{X} \in \mathbb{R}^d$. In this framework, we do not longer want to cluster independent entities but, \emph{a contrario}, to cluster those who are strongly dependent. Variable clustering is of prime interest in weather extremes, with examples stemming from regionalisation, see \cite{bernard2013clustering,bador2015spatial, saunders2021regionalisation}, where one observes spatial phenoma at finitely many sites. An interesting special case is to cluster those sites according to their extremal dependencies. They include applications of $K$-means or hierarchical clustering with a dissimilarity designed for extremes. The statistical properties of those procedures have received a very limited amount of investigation. It is not currently known what probabilistic models on $\textbf{X}$ can be estimated by these techniques. We will consider here model-based clustering where population-level clusters are clearly defined, offering interpretability and a benchmark to assess the performance of a peculiar clustering algorithm.
+	The problem of variable clustering is that of grouping similar components of a $d$-dimensional random vector $\textbf{X} = (X_1,\dots,X_d)$. Those groups are referred as clusters and unknown to the statistician who wants to recover them from $\textbf{X}_1, \dots, \textbf{X}_n$, $n$ independent copies of $\textbf{X}$. Loosely speaking, we are able to perform clustering in two distinguish cases : by partitionning the set $\{1,\dots, n\}$ of row indices or by partitioning with respect to column indices the set $\{1,\dots,d\}$. The first problem will be designated as the data clustering problem whereas the second corresponds to the variable clustering problem discussed here so far. In data clustering, clusters are clouds of observations and corresponds to respective realizations of one of the mixture distribution, which is a distribution on the whole $\mathbb{R}^d$. In this framework with \emph{i.i.d.} replications, \cite{pollard1981strong} shows the strong consistency of $k$-means clustering where the result was replicated in the context of extreme by \cite{janssen2020k} for spherical $k$-means. In contrast, in variable clustering, the effort is to define cluster models relate to subsets of components $X_j$, of $\textbf{X} \in \mathbb{R}^d$. In this framework, we do not longer want to cluster independent entities but, \emph{a contrario}, to cluster those who are strongly dependent. Variable clustering is of prime interest in weather extremes, with examples stemming from regionalisation, see \emph{e.g.} \cite{bernard2013clustering,bador2015spatial, saunders2021regionalisation}, where one observes spatial phenomena at finitely many sites. An interesting special case is to cluster those sites according to their extremal dependencies. They include applications of $K$-means or hierarchical clustering with a dissimilarity designed for extremes. The statistical properties of those procedures have received a very limited amount of investigation. It is not currently known what probabilistic models on $\textbf{X}$ can be estimated by these techniques. We will consider here model-based clustering where population-level clusters are clearly defined, offering interpretability and a benchmark to assess the performance of a peculiar clustering algorithm.
 	
 	In this work, we propose the AI-block model as a model for variable clustering in extreme-value theory and show that the clusters given by this model are uniquely defined. We then motivate and develop an algorithm tailored to the model with the help of the SECO metric. We thus analyze its performance in terms of exact cluster recovery, for minimally separated clusters, under appropriately defined cluster separation metric.
 	
@@ -120,7 +121,7 @@ showstringspaces=false
 	\end{equation*}
 	where $(\textbf{1},\textbf{x}^{(B)}, \textbf{1})$ has $j$th component equals to $x_j \mathds{1}_{\{j \in B\}} + \mathds{1}_{\{ j \notin B\}}$. In a similar way, we note $(\textbf{0}, x^{(B)}, \textbf{0})$ the vector in $\mathbb{R}^d$ which equals $x_j$ if $j \in B$ and $ 0 $ otherwise. We will denote the $d$ consecutive integer set starting from 1 as $\llbracket d \rrbracket$. Weak convergence of processes are denoted by '$\rightsquigarrow$'. The notation $\delta_x$ corresponds to the dirac measure at $x$. We define by $\textbf{X} \in \mathbb{R}^d$ a random vector with law $G$. Let $O = \{O_k\}_{k= 1 ,\dots, K}$ be a partition of $\{1,\dots,d\}$ into $K$ groups and let $s : \{1,\dots,d\} \rightarrow \{1,\dots,K\}$ be an index assignement function defined by $O_k = \{a \in \{1,\dots,d\} : s(a) = k\} = \{i_{k,1}, \dots, i_{k,d_k}\}$ with $d_1+\dots+d_K = d$.
 	
-	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we present AI-block models designed for variable clustering. Central to our work is a new metric for variable clustering in AI-block models. Standard clustering techniques employ dissimilariy metric between two variables. In contrast our metric is based on the Sum of Extremal COefficient (SECO) between two groups of variables, a measure that attempts to capture how two groups of variables are independent relative to their extremes. We discuss this in detail in Section \ref{sec:SECO}. In Section \ref{sec:estimation}, we develop a new clustering algorithm based on SECO. It has moderate computational complexity, polynomial in $d$. We probe that SECO can recover correctly the target partition, with high probability. All proofs are deferred to the Appendix.
+	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we describe AI-block models designed for variable clustering. Central to our work is a new metric for variable clustering in AI-block models. Standard clustering techniques employ dissimilariy metric between two variables. In contrast our metric is based on the Sum of Extremal COefficient (SECO) between two groups of variables, a measure that attempts to capture how two groups of variables are independent relative to their extremes. We discuss this in detail in Section \ref{sec:SECO}. In Section \ref{sec:estimation}, we develop a new clustering algorithm based on SECO. It has moderate computational complexity, polynomial in $d$. We prove that SECO can recover correctly the target partition, with high probability. All proofs are deferred to the Appendix.
 	
 	\section{A model for variable clustering}
 	\label{sec:variable_clust}
@@ -135,9 +136,9 @@ showstringspaces=false
 	\begin{equation*}
 		\mathbb{P}\left\{ \textbf{X} \leq \textbf{x}\right\} = \exp \left\{ -\Lambda(E \setminus [0,\textbf{x}]) \right\},
 	\end{equation*}
-	where $\Lambda$ is a Radon measure on the cone $E = [0,\infty)^d \setminus \{\textbf{0}\}$. This condition is equivalent to the notion of regular variation, that is there exists a sequence $0 < a_n \rightarrow \infty$ and a limit measure such that
+	where $\Lambda$ is a Radon measure on the cone $E = [0,\infty)^d \setminus \{\textbf{0}\}$. This condition is equivalent to the notion of regular variation, that is there exists a sequence $0 < \textbf{a}_n \rightarrow \infty$ and a limit measure such that
 	\begin{equation*}
-		n \mathbb{P}\left\{ a_n^{-1} \textbf{X} \in \cdot \right\} \overunderset{v}{n \rightarrow \infty}{\longrightarrow} \Lambda(\cdot),
+		n \mathbb{P}\left\{ \textbf{a}_n^{-1} \textbf{X} \in \cdot \right\} \overunderset{v}{n \rightarrow \infty}{\longrightarrow} \Lambda(\cdot),
 	\end{equation*}
 	with $\overset{v}{\rightarrow}$ denotes the vague convergence.
 	
@@ -150,11 +151,11 @@ showstringspaces=false
 	\begin{equation*}
 		C(\textbf{u}) = \exp\left\{-L\left(-\ln(u_1), \dots, -\ln(u_d)\right)\right\},
 	\end{equation*}
-	with $L$ is known as the stable tail dependence function (see \cite{gudendorf2010} for an overview of extreme value copulae). As it is a homogeneous function of order $1$, \emph{i.e.} $L(a\textbf{z}) = a L(\textbf{z})$ for all $a > 0$, we have, for all $z \in [0,\infty)^d$,
+	with $L$ is known as the stable tail dependence function (see \cite{gudendorf2010} for an overview of extreme value copulae). As it is a homogeneous function of order $1$, \emph{i.e.} $L(a\textbf{z}) = a L(\textbf{z})$ for all $a > 0$, we have, for all $\textbf{z} \in [0,\infty)^d$,
 	\begin{equation*}
 		L(\textbf{z}) = (z_1 + \dots + z_d)A(\textbf{t}),
 	\end{equation*}
-	with $t_j = z_j / (z_1 + \dots z_d)$ for $j \in \{2,\dots,d\}$ and $t_1 = 1-t_2-\dots-t_d$, and $A$ is the restriction of $L$ into the $d$-dimensional unit simplex, viz.
+	with $t_j = z_j / (z_1 + \dots z_d)$ for $j \in \{2,\dots,d\}$, $t_1 = 1-t_2-\dots-t_d$, and $A$ is the restriction of $L$ into the $d$-dimensional unit simplex, viz.
 	\begin{equation*}
 		\Delta_{d-1} = \{(v_1, \dots, v_d) \in [0,1]^d : v_1 + \dots + v_d = 1\}.
 	\end{equation*}
@@ -174,7 +175,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		$C_\Pi$ is an extreme value copula associated to the random vector $\textbf{X}$.
 	\end{lemma}
 	
-	A direct consequence of this Lemma is that if $\textbf{X}$ admits a copula $C_\Pi$, it is an extreme value random vector. In particular, there exists a stable tail dependence function $L$ say, and one can show that $L$ can be expressed in a convenient way such as :
+	A direct consequence of this lemma is that if $\textbf{X}$ admits a copula $C_\Pi$, it is an extreme-value random one. In particular, there exists a stable tail dependence function $L$ say, and one can show that $L$ can be expressed in a convenient way such as :
 	\begin{equation}
 		\label{eq:mutual_indep_stdf}
 		L\left(z_1, \dots, z_d\right) = \sum_{k=1}^K L^{(O_k)}\left( \textbf{z}^{(O_k)} \right), \quad \textbf{z} \in [0,\infty)^d,
@@ -217,7 +218,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\begin{definition}
 		For any two partitions $O, S$ of $\{1,\dots,d\}$, we define $O \cap S$ as the partition induced by the equivalence relation $j \overset{O \cap S}{\sim} k$ iff $j \overset{O}{\sim} k$ and $j \overset{S}{\sim} k$.
 	\end{definition}
-	Checking that $j \overset{O \cap S}{\sim} k$ is an equivalence relation is straightforward. With this defition, we have the following interesting properties that lead to the desired result, the identifiability of the introduced AI-block models.
+	Checking that $j \overset{O \cap S}{\sim} k$ is an equivalence relation is straightforward. With this definition, we have the following interesting properties that lead to the desired result, the identifiability of the introduced AI-block models.
 	\begin{theorem}
 		\label{thm:unicity}
 		Let $\textbf{X}$ be an extreme value random vector, then the following properties hold :
@@ -231,10 +232,10 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	
 	We refer to Appendix for a proof of this Theorem. It shows that the maximum partition for which $\textbf{X}$ is an AI-block model always exists and its structure is intrinsic of the definition of $\textbf{X}$. The maximal partition of $\bar{O}(\textbf{X})$ matches our intuition regarding what would constitute a reasonable clustering target for these models, \emph{i.e.} the finest partition $\bar{O}(\textbf{X})$ where $\textbf{X}$ is an AI-block model as stated in the introduction of \cite{NIPS2017_37d097ca}. With a slight abuse of notation, we will write $\bar{O}(\textbf{X})$ as $\bar{O}$. 
 	
-	In an AI-block model, we may restrict Equation \eqref{eq:mutual_indep_stdf} to the simplex, this equation becomes equivalent to
+	In an AI-block model, we may restrict Equation \eqref{eq:mutual_indep_stdf} to the simplex and thus, expressing the stable tail dependence function in terms of the Pickands dependence function. Furthermore, its expression is obtained as a convex combination of the Pickands dependence function $A^{(O_1)}, \dots, A^{(O_K)}$ as follows 
 	\begin{align*}
 		A(t_1, \dots, t_d) &= \frac{1}{z_1+\dots+z_d} \left[ \sum_{k=1}^K (z_{i_{k,1}} + \dots + z_{i_{k,d_k}}) A^{(O_k)}(\textbf{t}^{(O_k)}) \right] \\
-		&= \sum_{k=1}^K w^{(k)}(\textbf{t}) A^{(O_k)}(\textbf{t}^{(O_k)}) =: A_O
+		&= \sum_{k=1}^K w^{(O_k)}(\textbf{t}) A^{(O_k)}(\textbf{t}^{(O_k)}) =: A_O
 	\end{align*}
 	with $t_j = z_j / (z_1+\dots+z_d)$ for $j \in {2,\dots, d}$ and $t_1 = 1-t_2 - \dots - t_d$, $w^{(O_k)}(\textbf{t})  = z_{i_{k,1}} + \dots + z_{i_{k,d_k}} / (z_1 + \dots + z_{d})$ for $k \in \{2, \dots, K\}$ and $w_1 = 1-w^{(O_2)}(\textbf{t})-\dots -w^{(O_K)}(\textbf{t})$ and $t_{i_{k,l}} = z_{i_{k,l}} / (z_{i_{k,1}} + \dots + z_{i_{k,d_k}})$ for $k \in \{1, \dots, K\}$ and $l \in \{1, \dots, d_k\}$. The function $A$ is still a Pickands dependence function as a convex combination of Pickands dependence function (see p. 123 of \cite{falk2010laws}).
 	
@@ -284,20 +285,20 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		Furthermore, the right hand side of the inequality is equal to zero if and only if $S \leq O$.
 	\end{proposition}
 	
-	Proposition \ref{prop:oracle} gives the theoretical value if $\textbf{X} \sim O$ for an arbitrary partition which is stricly greater than $0$ if the given partition does not belong to $\mathcal{L}(\textbf{X})$. Now, using this result, one can think of an algorithm to recover the maximal element $\bar{O}$. Indeed, if the value of the Pickands dependence function is known for every $\textbf{t} \in \Delta_{d-1}$, one has to evaluate this metric in \eqref{eq:A_sigma} with $\hat{C}$ and $\hat{R}$ a given partition of $\llbracket d \rrbracket$ and stop when it is equal to $0$ and proceed inductively. However, the number of oracle calls will be equal to the Stirling number of the Second kind and will grows drastically as $d$ increases. We thus need a metric that avoids to call for value for each partition of $\{1,\dots,d\}$. Indeed, by Proposition \ref{prop:ineq}, one has :
+	Proposition \ref{prop:oracle} gives the theoretical value if $\textbf{X} \sim O$ for an arbitrary partition which is stricly greater than $0$ if the given partition does not belong to $\mathcal{L}(\textbf{X})$. Now, using this result, one can think of an algorithm to recover the maximal element $\bar{O}$. Indeed, if the value of the Pickands dependence function is known for every $\textbf{t} \in \Delta_{d-1}$, one has to evaluate the metric given in \eqref{eq:A_sigma} with $\hat{C}$ and $\hat{R}$ a given partition of $\llbracket d \rrbracket$. Iterate this process for every possible partition $(\hat{C}, \hat{R})$ of $\llbracket d \rrbracket$ and stop when it is equal to $0$ to obtain an independent partition of $\llbracket d \rrbracket$. However, this process is computationally burdensome as the number of partition $(\hat{C}, \hat{R})$ to consider is given by the Stirling number of the Second kind and will grows drastically as $d$ increases. We thus need a metric that avoids to call for value for each partition of $\{1,\dots,d\}$. Indeed, by Proposition \ref{prop:ineq}, one has :
 	\begin{equation}
 		\label{eq:seco_prelude}
 		A(\textbf{t}) \leq w^{(\llbracket d-1 \rrbracket)}(\textbf{t}) A\left(\frac{t_1}{w^{(\llbracket d-1 \rrbracket)}(\textbf{t})}, \frac{t_2}{w^{(\llbracket d-1 \rrbracket)}(\textbf{t})} ,\dots, \frac{t_{d-1}}{w^{(\llbracket d-1 \rrbracket)}(\textbf{t})}, 0\right) + t_d , \quad \textbf{t} \in \Delta_{d-1},
 	\end{equation}
 	where inequalities holds if and only if $X_d \indep (X_1,\dots, X_{d-1})$. This statement holds whatever the chosen order but we choose the trivial one for notational convenience. This result gives us a metric to introduce an index in a candidate cluster. Indeed, take as candidate cluster $\hat{C} = \{1,\dots,d-1\}$ and we ask if the element $\{d\}$ belongs to $\hat{C}$. Thus, with knowledge of the above equation, $\{d\}$ do not belongs to $\hat{C}$ if \eqref{eq:seco_prelude} holds as an equality for every $\textbf{t} \in \Delta_{d-1}$.
 	
-	For $\hat{C}$ and $\hat{R}$, we obtain an independent partition if and only if the criteria given in \eqref{eq:A_sigma} is equal to $0$. Another difficulty is this has to hold for every $\textbf{t} \in \Delta_{d-1}$ which is not countable and implies computationaly infeasibility for every considered dimension $d \in \mathbb{N}_*$. We may further discretize the simplex of $\mathbb{R}^d$ to have an approximation of \eqref{eq:A_sigma}. Take $\textbf{t} \in \Delta_{d-1} \subset [0,1]^d$, we want to have at least one observation at distance less than $1$ say, from $\textbf{t}$, then we must increase the number $N$ of observations as $d$ increases. We thus need at least
+	Recall that $\hat{C}$ and $\hat{R}$ are an independent partition of $\llbracket d \rrbracket$ if and only if the criteria given in \eqref{eq:A_sigma} is equal to $0$. Another difficulty is this has to hold for every $\textbf{t} \in \Delta_{d-1}$ which is not countable and implies computationaly infeasibility for every considered dimension $d \in \mathbb{N}_*$. Indeed, one shall discretize the simplex of $\mathbb{R}^d$ to have an approximation of \eqref{eq:A_sigma}. Take $\textbf{t} \in \Delta_{d-1} \subset [0,1]^d$, we want to have at least one observation at distance less than $1$ say, from $\textbf{t}$, then we must increase the number $N$ of observations as $d$ increases. We thus need at least
 	\begin{equation*}
 	N \geq \frac{\Gamma(d/2 + 1)}{\pi^{d/2}} \overset{d \rightarrow \infty}{\sim} \left( \frac{d}{2 \pi e} \right)^{d/2} \sqrt{d \pi}
 	\end{equation*}
 	points in order to fill the hypercube $[0,1]^d$, thus $\Delta_{d-1}$. This number of points grows exponentially fast with $d$. So, even with discretization, where we might obtain theoretical concentration bounds for the $\sup$-norm over the simplex (using chaining methods), the criteria would not be computable in practice.
 	
-	However, in the framework of extremes, independence between the components $X_1, \dots, X_d$ of an extreme-value random vector $\textbf{X} \in \mathbb{R}^d$ can be stated in a usefull manner by the use of exponent measure (see Remark 3). One simple necessary and sufficient conditions is those stated in \cite{Takahashi1987SomePO, takahashi1994asymptotic}. It is shown that
+	However, in the framework of extremes, independence between the components $X_1, \dots, X_d$ of an extreme-value random vector $\textbf{X} \in \mathbb{R}^d$ can be stated in a useful manner as stated in the Remark 3 with help of the exponent measure. One simple necessary and sufficient conditions is those stated in \cite{Takahashi1987SomePO, takahashi1994asymptotic}. It is shown that
 	\begin{equation}
 	\label{eq:independence}
 		G(\textbf{x}) = G_1(x_1) \dots G_d(x_d), \quad \textbf{x} \in \mathbb{R}^d,
@@ -307,7 +308,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	 	\label{eq:independence_non_extreme}
 	 	cov(f_1(X_1), f_2(X_2)) = 0,
 	 \end{equation}
-	 holds for every continuous bounded functions $f_1$ and $f_2$ is equivalent to $\exists f,g$ a continuous and bounded function such that \eqref{eq:independence_non_extreme} is equal to $0$. This statement is known to be false in general but stand as true for the Gaussian case (take $f = g = id$).
+	 holds for every continuous bounded functions $f_1$ and $f_2$ is equivalent to there exists $f,g$ continuous and bounded functions such that \eqref{eq:independence_non_extreme} is equal to $0$. This statement is known to be false in general but stand as true for the Gaussian case (take $f = g = id$). 
 	 
 	 The result of \cite{takahashi1994asymptotic} is extended to our framework by $G(\textbf{x}) = G^{(O_1)}(\textbf{x}^{(O_1)}) G^{(O_2)}(\textbf{x}^{(O_2)})$ for any $\textbf{x} = (\textbf{x}^{(O_1)}, \textbf{x}^{(O_2)}) \in \mathbb{R}^d$ if and only if the equation holds for at least one $\textbf{p} = (\textbf{p}^{(O_1)}, \textbf{p}^{(O_2)}) \in \mathbb{R}^d$. The formal statement and its proof are given in Appendix \ref{subsec:asympto_indep}. Moreover, this result belongs to those who were stated for single components of max-stable random vector $\textbf{X}$ that can be extended for subvectors of max-stable random vector (see Lemma 6 of \cite{papastathopoulos2016conditional} or Exercise 5.5.1 of \cite{resnick2008extreme} for instance).
 	 
@@ -321,11 +322,11 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\end{equation}
 	Loosely speaking, if $\textbf{X}^{(O_1)}$ and $X^{(O_2)}$ are mutually independent, thus a characterizing property is that the extremal coefficient of $\textbf{X}$ is written as the sum of the extremal coefficients $\theta^{(O_1)}$ and $\theta^{(O_2)}$ of $\textbf{X}^{(O_1)}$ and $\textbf{X}^{(O_2)}$ respectively.
 	
-	Let $\bar{O}$ the unique maximal element of $\mathcal{L}(\textbf{X})$ and consider $\hat{C}_1 \subset \bar{O}_1$. Consider now $j \in \{1,\dots,d\} \setminus \hat{O}_1$ and we to know if $j \in \bar{O}_1$, again, using knowledge of the Pickands dependence function, the statistician can evaluate the following value
+	Let $\bar{O}$ the unique maximal element of $\mathcal{L}(\textbf{X})$ and consider $\hat{C} \subset \bar{O}_1$. Consider now $j \in \{1,\dots,d\} \setminus \hat{C}$ and we want to know if $j \in \bar{O}_1$, again, using knowledge of the Pickands dependence function, the statistician can evaluate the following value
 	
 	\begin{equation}
 		\label{eq:SECO}
-		SECO(\hat{O}_1, j) = \theta^{(\hat{O}_1)} + 1 - \theta^{(\hat{O}_1 \cup \{j\})}.
+		SECO(\hat{C}, j) = \theta^{(\hat{C})} + 1 - \theta^{(\hat{C} \cup \{j\})}.
 	\end{equation}
 	The former term is equal to $0$ if and only if $j \notin \bar{O}_1$ and strictly positive otherwise. This property is now being clear, the key quantity that quantifies the difficulty of clustering in AI-block models is MSECO that is defined as
 	\begin{equation}
@@ -344,9 +345,9 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	A sufficiency condition in order that Assumption \ref{ass:A} is satisfied is to suppose that each exponent measure of the extreme value random vectors $\textbf{X}^{(\bar{O}_k)}$ has a nonnegative Lebesgue density on the non negative orthant $[0,\infty)^{d_k} \setminus \{\textbf{0}^{(\bar{O}_k)}\}$ for every $k \in \{1, \dots, K\}$ (see \cite{engelke2020graphical} and Kirstin Strokorb's discussion contribution). Various classes of tractable extreme value distributions satisfy Assumption \ref{ass:A}. Popular models that are commonly used for statistical inference include the asymmetric logistic model (\cite{10.1093/biomet/77.2.245}), the asymmetric Dirichlet model (\cite{10.2307/2345748}), the pairwise Beta model (\cite{COOLEY20102103}) or the Hüsler Reiss model (\cite{HUSLER1989283}).
 	\begin{remark}
 		\label{rem:tree_model}
-		In its seminal work, \cite{NIPS2017_37d097ca} proposes a conditional independence test to decide whether an element $j$ belongs to a cluster $\hat{O}_1$, say. Formally, one may ask if $\textbf{X}^{(\hat{O}_1)} \indep X_j | S \setminus (\hat{O}_1 \cup \{j\})$. However, conditional independence among extremes is relatively new and mainly designed for tree inference (see \emph{e.g.} \cite{engelke2020graphical, asenova2021inference, segers2020one, engelke2020structure}). In those models, as in Gaussian graphical model (we refer to \cite{lauritzen1996graphical} for an overview), one suppose that the extreme value random vector admits a Husler Reiss density which can be seen as a Gaussian extremal model with variogram. Interesting properties are also obtained such that conditional dependencies are encoded in the precision matrix of the Husler Reiss distribution.
+		In its seminal work, \cite{NIPS2017_37d097ca} proposes a conditional independence test to decide whether an element $j$ belongs to a cluster $\hat{C}$, say. Formally, one may ask if $\textbf{X}^{(\hat{C})} \indep X_j | \llbracket d \rrbracket \setminus (\hat{C} \cup \{j\})$. However, defining a suitable conditional independence for extremes is relatively new and mainly designed for tree inference (see \emph{e.g.} \cite{engelke2020graphical, asenova2021inference, segers2020one, engelke2020structure}). In those models, as in Gaussian graphical model (we refer to \cite{lauritzen1996graphical} for an overview), one supposes that the extreme-value random vector admits a Hüssler Reiss density which can be seen as a Gaussian extremal model with variogram. Interesting properties are also obtained such that conditional dependencies are encoded in the precision matrix of the Husler Reiss distribution.
 	\end{remark}
-	Highlighted by Remark \ref{rem:tree_model}, if we suppose, as in the litterature of extremal graphs, that $\textbf{X}$ is absolutely continous with respect to the Lebesgue measure and admits an Husler Reiss density, then $\textbf{X}$ exhibits extremal dependence between all its components. Thus, the resulting maximal element of the AI-block model is trivial and given by $\bar{O} = \{ \{1\}, \dots, \{d\}\}$. In order to drop Assumption \ref{ass:A}, further works are needed and left for future investigations.
+	Highlighted by Remark \ref{rem:tree_model}, if we suppose, as in the litterature of extremal graphs, that $\textbf{X}$ is absolutely continous with respect to the Lebesgue measure and admits an Hüssler Reiss density in order to study conditional dependencies (defined in a peculiar way, see \cite{engelke2020graphical}), then $\textbf{X}$ shall exhibits extremal dependence between all its components. Thus, the resulting maximal element of the AI-block model is trivial and given by $\bar{O} = \{ \{1\}, \dots, \{d\}\}$ or $\bar{O} = \{ 1,\dots,d\}$, namely each components are independent or none are. In order to drop Assumption \ref{ass:A}, further works are needed and left for future investigations.
 	
 	\begin{remark}
 		 \label{rem:gaussian_copula}
@@ -439,7 +440,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\end{equation*}
 		and $B_C$ is a continuous tight Gaussian process with covariance function
 		\begin{equation*}
-			cov(B_C(\textbf{u}), B_C(\textbf{v})) = C(\textbf{u} \wedge \textbf{v}) - C(\textbf{u})C(\textbf{v}) \overset{\textbf{X}\sim \mathcal{L}(\textbf{X})}{=} C_{\Pi}(\textbf{u} \wedge \textbf{v}) - C_{\Pi}(\textbf{u})C_{\Pi}(\textbf{v})
+			cov(B_C(\textbf{u}), B_C(\textbf{v})) = C(\textbf{u} \wedge \textbf{v}) - C(\textbf{u})C(\textbf{v}) \overset{\textbf{X}\sim O}{=} C_{\Pi}(\textbf{u} \wedge \textbf{v}) - C_{\Pi}(\textbf{u})C_{\Pi}(\textbf{v})
 		\end{equation*}
 	\end{theorem}
 	Using previous results stated in the present document, the test is equivalent to test the hypothesis under $\textbf{t} = (d^{-1},\dots,d^{-1})$, that is, whether the extremal coefficient of $\textbf{X}$ is equal to the sum of the other extremal coefficients of $\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)}$. Furthermore, the asymptotic variance is easily (but technical) computable under this specific point.
@@ -456,7 +457,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	
 	In this paragraph, we present an algorithm that recover clusters in AI-block models. We recall that we set an index $j \in \{1,\dots,d\}$. As we do not have knowledge of $A$, we need to estimate it from $n$ observed independent copy $\textbf{X}_1, \dots, \textbf{X}_n$ of $\textbf{X}$. to a given estimator $\hat{A}_n$ of $A$ we associate the estimation 
 	\begin{equation*}
-		\widehat{SECO}(\hat{O}_1, j) = \hat{\theta}^{(\hat{O}_1)}_n + 1 - \hat{\theta}^{(\hat{O}_1 \cup \{j\})}_n,
+		\widehat{SECO}(\hat{C}, j) = \hat{\theta}^{(\hat{C})}_n + 1 - \hat{\theta}^{(\hat{C} \cup \{j\})}_n,
 	\end{equation*}
 	of the SECO metric. We then estimate the partition $\hat{O}$ according to the split procedure.
 	\begin{algorithm}
