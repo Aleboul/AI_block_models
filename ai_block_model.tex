@@ -451,7 +451,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\label{prop:concentration_inequality}
 		For $t >0$, we have
 		\begin{equation*}
-			\mathbb{P}\left\{ |\hat{\theta}_n - \theta | \geq t \right\} \leq 16 d^2 \exp\left\{ - \frac{nt^2}{8}\right\}.
+			\mathbb{P}\left\{ |\hat{\theta}_n - \theta | \geq t \right\} \leq 4 d \exp\left\{ - \frac{nt^2}{128d^2}\right\}.
 		\end{equation*}
 	\end{proposition}
 	
@@ -499,13 +499,13 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\label{corr:exact_recovery}
 		Let us consider parameters fulfilling 
 		\begin{equation*}
-		\alpha_s \geq 2 \sqrt{\frac{6(1+\gamma)}{n} \ln\left(d s^{\frac{2}{3(1+\gamma)}}\right)}, \quad \eta_{s} \geq 2 \sqrt{\frac{6(1+\gamma)}{n} \ln\left(d s^{\frac{2}{3(1+\gamma)}}\right)} + \alpha_s,
+		\alpha_s \geq 8s \sqrt{\frac{6(1+\gamma)}{n} \ln\left(d s^{\frac{1}{3(1+\gamma)}}\right)}, \quad \eta_{s} \geq 8s \sqrt{\frac{6(1+\gamma)}{n} \ln\left(d s^{\frac{1}{3(1+\gamma)}}\right)} + \alpha_s,
 		\end{equation*}
-		for some $\gamma > 0$. If $\textbf{X} \sim O$ and for $k \in \{1,\dots, K\}$ and $s_k \in \{1, \dots, d-1\}$, $A^{(\bar{O}_k)} \in \mathcal{A}(\eta_{s_k})$, and under Assumption \ref{ass:A}, then the output of our algorithm applied to the estimator $\hat{A}_n$, is consistent : $\hat{O} = \bar{O}$, with probability higher than $1-d^{-3\gamma}$.
+		for some $\gamma > 0$. If $\textbf{X} \sim O$ and for $k \in \{1,\dots, K\}$ and $s_k \in \{1, \dots, d-1\}$, $A^{(\bar{O}_k)} \in \mathcal{A}(\eta_{s_k})$, and under Assumption \ref{ass:A}, then the output of our algorithm applied to the estimator $\hat{A}_n$, is consistent : $\hat{O} = \bar{O}$, with probability higher than $1-4d^{-3\gamma}$.
 	\end{corollary}
 	
 	\begin{remark}
-		Therefore, with $\tau_s \leq C \times \sqrt{\frac{\ln(sd)}{n}}$, with $C > 0$ a positive constant, thresholding $\widehat{SECO}$ at level $2\tau_s$ guarantees exact recovery, whenever the SECO separation $\eta_s$ is at least $4 \tau_s$.
+		Therefore, Corollary \ref{corr:exact_recovery} say that $\tau_s$ is of order $d\sqrt{\frac{\ln(sd)}{n}}$, thresholding $\widehat{SECO}$ at level $2\tau_s$ guarantees exact recovery, whenever the SECO separation $\eta_s$ is at least $4 \tau_s$.
 	\end{remark}
 	Note that above, independently of any distributional assumption, the $SECO$ metric and its related estimator $\widehat{SECO}$ is sufficient to recover the original clusters. This results is quite interesting, since it is stronger than what is known in the classical, non-extremal independence clustering \cite{NIPS2017_37d097ca}. Indeed, in classical theory, one ask the existence of density in order to compute the mutual information between two vector $\textbf{X}^{(\hat{C})}$ and $\textbf{X}^{(\hat{R})}$. Here, we just use a simple statistic, which can be estimated non parametrically and without the existence of densities to recover our clusters. A similar statement could be obtained for Gaussian models where the correlation coefficient between random variables gives knowledge about their dependences as the extremal coefficient gives for extreme value distributions. Such stronger results obtained in extreme value theory but not in the classical theory are also valid for trees, we refer to \cite{engelke2020structure} for further details.
 	
@@ -707,21 +707,22 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\end{equation*}
 		Using Proposition \ref{prop:concentration_inequality}, one has 
 		\begin{equation*}
-			\mathbb{P}\left\{|\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq t \right\} \leq 16 s^2 \exp \left\{-\frac{nt^2}{8} \right\},
+			\mathbb{P}\left\{|\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq t \right\} \leq 4 s \exp \left\{-\frac{nt^2}{128s^2} \right\},
 		\end{equation*}
 		where $|U| = s$. By considering $\delta \in ]0,1[$ and solve the following equation
 		\begin{equation*}
-			\frac{\delta}{d^3} = 16 s^2 \exp \left\{-\frac{nt^2}{8} \right\},
+			\frac{\delta}{d^3} = 4 s \exp \left\{-\frac{nt^2}{128s^2} \right\},
 		\end{equation*}
 		with respect to $t$ gives that :
 		\begin{equation*}
-			\mathbb{P}\left\{ \bigcup_{U \in ALG} |\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq 2 \sqrt{\frac{2}{n} \ln \left( \frac{16 s^2 d^3}{\delta} \right)} \right\} \leq \delta.
+			\mathbb{P}\left\{ \bigcup_{U \in ALG} |\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq 8s \sqrt{\frac{2}{n} \ln \left( \frac{4 s d^3}{\delta} \right)} \right\} \leq \delta.
 		\end{equation*}
-		Now, taking $\delta = 16d^{-3\gamma}$, with $\gamma > 0$, we have that for every $U \in ALG$
+		Now, taking $\delta = 4d^{-3\gamma}$, with $\gamma > 0$, we have that for every $U \in ALG$
 		\begin{equation*}
-			|\hat{\theta}_n^{(U)} - \theta^{(U)}| \leq 2 \sqrt{\frac{6(1+\gamma)}{n} \ln \left(s^{\frac{2}{3(1+\gamma)}} d \right)},
+			|\hat{\theta}_n^{(U)} - \theta^{(U)}| \leq 8s \sqrt{\frac{6(1+\gamma)}{n} \ln \left(s^{\frac{1}{3(1+\gamma)}} d \right)},
 		\end{equation*}
-		with probability higher than $1 - 16d^{-3\gamma}$. The result then follows from Proposition \ref{prop:exact_recovery}, since for every $s \in \{1, \dots, d-1\}$, $\tau_{s} \leq 8 s \sqrt{\frac{6(1+\gamma)}{n} \ln \left(s^{\frac{2}{3(1+\gamma)}} d \right)}$ with probability higher than $1-16d^{-3\gamma}$.
+		with probability higher than $1 - 
+		4d^{-3\gamma}$. The result then follows from Proposition \ref{prop:exact_recovery}, since for every $s \in \{1, \dots, d-1\}$, $\tau_{s} \leq 8 s \sqrt{\frac{6(1+\gamma)}{n} \ln \left(s^{\frac{1}{3(1+\gamma)}} d \right)}$ with probability higher than $1-4d^{-3\gamma}$.
 	\end{proof}
 	
 	\section{Proofs of auxiliary results}
