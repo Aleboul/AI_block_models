@@ -451,7 +451,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\label{prop:concentration_inequality}
 		For $t >0$, we have
 		\begin{equation*}
-			\mathbb{P}\left\{ |\hat{\theta}_n - \theta | \geq t \right\} \leq 4 d \exp\left\{ - \frac{nt^2}{128 d^2}\right\}.
+			\mathbb{P}\left\{ |\hat{\theta}_n - \theta | \geq t \right\} \leq 16 d^2 \exp\left\{ - \frac{nt^2}{8}\right\}.
 		\end{equation*}
 	\end{proposition}
 	
@@ -499,7 +499,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\label{corr:exact_recovery}
 		Let us consider parameters fulfilling 
 		\begin{equation*}
-		\alpha_s \geq 8 s \sqrt{\frac{2(1+\gamma)}{n} \ln\left(d s^{\frac{1}{1+\gamma}}\right)}, \quad \eta_{s} \geq 8 s \sqrt{\frac{2(1+\gamma)}{n} \ln\left(d s^{\frac{1}{1+\gamma}}\right)} + \alpha_s,
+		\alpha_s \geq 2 \sqrt{\frac{6(1+\gamma)}{n} \ln\left(d s^{\frac{2}{3(1+\gamma)}}\right)}, \quad \eta_{s} \geq 2 \sqrt{\frac{6(1+\gamma)}{n} \ln\left(d s^{\frac{2}{3(1+\gamma)}}\right)} + \alpha_s,
 		\end{equation*}
 		for some $\gamma > 0$. If $\textbf{X} \sim O$ and for $k \in \{1,\dots, K\}$ and $s_k \in \{1, \dots, d-1\}$, $A^{(\bar{O}_k)} \in \mathcal{A}(\eta_{s_k})$, and under Assumption \ref{ass:A}, then the output of our algorithm applied to the estimator $\hat{A}_n$, is consistent : $\hat{O} = \bar{O}$, with probability higher than $1-d^{-3\gamma}$.
 	\end{corollary}
@@ -707,21 +707,21 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\end{equation*}
 		Using Proposition \ref{prop:concentration_inequality}, one has 
 		\begin{equation*}
-			\mathbb{P}\left\{|\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq t \right\} \leq 4 s \exp \left\{-\frac{nt^2}{128 s^2} \right\},
+			\mathbb{P}\left\{|\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq t \right\} \leq 16 s^2 \exp \left\{-\frac{nt^2}{8} \right\},
 		\end{equation*}
 		where $|U| = s$. By considering $\delta \in ]0,1[$ and solve the following equation
 		\begin{equation*}
-			\frac{\delta}{d^3} = 4 s \exp \left\{-\frac{nt^2}{128 s^2} \right\},
+			\frac{\delta}{d^3} = 16 s^2 \exp \left\{-\frac{nt^2}{8} \right\},
 		\end{equation*}
 		with respect to $t$ gives that :
 		\begin{equation*}
-			\mathbb{P}\left\{ \bigcup_{U \in ALG} |\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq 8 s \sqrt{\frac{2}{n} \ln \left( \frac{2s d^3}{\delta} \right)} \right\} \leq \delta.
+			\mathbb{P}\left\{ \bigcup_{U \in ALG} |\hat{\theta}_n^{(U)} - \theta^{(U)}| \geq 2 \sqrt{\frac{2}{n} \ln \left( \frac{16 s^2 d^3}{\delta} \right)} \right\} \leq \delta.
 		\end{equation*}
-		Now, taking $\delta = 4d^{-3A}$, we have that for every $U \in ALG$
+		Now, taking $\delta = 16d^{-3\gamma}$, with $\gamma > 0$, we have that for every $U \in ALG$
 		\begin{equation*}
-			|\hat{\theta}_n^{(U)} - \theta^{(U)}| \leq 8 s \sqrt{\frac{2(1+A)}{n} \ln \left(s^{\frac{1}{1+A}} d \right)},
+			|\hat{\theta}_n^{(U)} - \theta^{(U)}| \leq 2 \sqrt{\frac{6(1+\gamma)}{n} \ln \left(s^{\frac{2}{3(1+\gamma)}} d \right)},
 		\end{equation*}
-		with probability higher than $1 - d^{-3A}$. The result then follows from Proposition \ref{prop:exact_recovery}, since for every $s \in \{1, \dots, d-1\}$, $\tau_{s} \leq 8 s \sqrt{\frac{2(1+A)}{n} \ln \left(s^{\frac{1}{1+A}} d \right)}$ with probability higher than $1-d^{-3A}$.
+		with probability higher than $1 - 16d^{-3\gamma}$. The result then follows from Proposition \ref{prop:exact_recovery}, since for every $s \in \{1, \dots, d-1\}$, $\tau_{s} \leq 8 s \sqrt{\frac{6(1+\gamma)}{n} \ln \left(s^{\frac{2}{3(1+\gamma)}} d \right)}$ with probability higher than $1-16d^{-3\gamma}$.
 	\end{proof}
 	
 	\section{Proofs of auxiliary results}
