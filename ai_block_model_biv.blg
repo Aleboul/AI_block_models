@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ai_block_model_biv.aux
+The style file: apalike.bst
+Database file #1: pick.bib
+Warning--empty institution in galambos1978asymptotic
+Warning--empty journal in tsybakov2014aggregation
+You've used 51 entries,
+            1935 wiz_defined-function locations,
+            772 strings with 11821 characters,
+and the built_in function-call counts, 20080 in all, are:
+= -- 1987
+> -- 763
+< -- 40
++ -- 254
+- -- 247
+* -- 1708
+:= -- 3487
+add.period$ -- 158
+call.type$ -- 51
+change.case$ -- 363
+chr.to.int$ -- 50
+cite$ -- 53
+duplicate$ -- 757
+empty$ -- 1443
+format.name$ -- 328
+if$ -- 3932
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 58
+newline$ -- 257
+num.names$ -- 157
+pop$ -- 310
+preamble$ -- 1
+purify$ -- 372
+quote$ -- 0
+skip$ -- 578
+stack$ -- 0
+substring$ -- 1506
+swap$ -- 89
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 288
+warning$ -- 2
+while$ -- 172
+width$ -- 0
+write$ -- 659
+(There were 2 warnings)

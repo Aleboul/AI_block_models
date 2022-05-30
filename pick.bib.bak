@@ -1,4 +1,3 @@
-% Encoding: UTF-8
 @InProceedings{gudendorf2010,
 author="Gudendorf, Gordon
 and Segers, Johan",
@@ -522,11 +521,11 @@ URL = {https://doi.org/10.1214/aop/1176993666}
   publisher={Institute of Mathematical Statistics}
 }
 
-@Article{Engelke2020,
-  author  = {Engelke, Sebastian and Volgushev, Stanislav},
-  title   = {Structure learning for extremal tree models},
-  journal = {arXiv preprint arXiv:2012.06179},
-  year    = {2020},
+@article{engelke2020structure,
+  title={Structure learning for extremal tree models},
+  author={Engelke, Sebastian and Volgushev, Stanislav},
+  journal={arXiv preprint arXiv:2012.06179},
+  year={2020}
 }
 
 @book{resnick2007heavy,
@@ -577,30 +576,4 @@ URL = {https://doi.org/10.1214/18-AOS1794}
   title={AGGREGATION AND HIGH-DIMENSIONAL STATISTICS (preliminary notes of Saint-Flour lectures, July 8-20, 2013)},
   author={Tsybakov, Alexandre B},
   year={2014}
-}
-
-@article{stephenson2003simulating,
-  title={Simulating multivariate extreme value distributions of logistic type},
-  author={Stephenson, Alec},
-  journal={Extremes},
-  volume={6},
-  number={1},
-  pages={49--59},
-  year={2003},
-  publisher={Springer}
-}
-
-@article{gumbel1960,
-author = {E.J. Gumbel},
-year = {1960},
-title = {Distributions de valeurs extrêmes en plusieurs dimensions.},
-journal = {Publications de l'institut de Statistique de l'Université de Paris},
-volume = {9},
-pages = {171-173}}
-
-@article{fomichov2022spherical,
-  title={Spherical clustering in detection of groups of concomitant extremes},
-  author={Fomichov, V and Ivanovs, J},
-  journal={Biometrika},
-  year={2022}
 }
