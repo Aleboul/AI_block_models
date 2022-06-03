@@ -1,285 +1,296 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
 
-\bibitem[Asenova et~al., 2021]{asenova2021inference}
-Asenova, S., Mazo, G., and Segers, J. (2021).
+\bibitem{asenova2021inference}
+S.~Asenova, G.~Mazo, and J.~Segers.
 \newblock Inference on extremal dependence in the domain of attraction of a
   structured h{\"u}sler--reiss distribution motivated by a markov tree with
   latent variables.
-\newblock {\em Extremes}, 24(3):461--500.
+\newblock {\em Extremes}, 24(3):461--500, 2021.
 
-\bibitem[Bador et~al., 2015]{bador2015spatial}
-Bador, M., Naveau, P., Gilleland, E., Castell{\`a}, M., and Arivelo, T. (2015).
+\bibitem{bador2015spatial}
+M.~Bador, P.~Naveau, E.~Gilleland, M.~Castell{\`a}, and T.~Arivelo.
 \newblock Spatial clustering of summer temperature maxima from the cnrm-cm5
   climate model ensembles \& e-obs over europe.
-\newblock {\em Weather and climate extremes}, 9:17--24.
+\newblock {\em Weather and climate extremes}, 9:17--24, 2015.
 
-\bibitem[Balkema and Resnick, 1977]{balkema1977max}
-Balkema, A.~A. and Resnick, S.~I. (1977).
+\bibitem{balkema1977max}
+A.~A. Balkema and S.~I. Resnick.
 \newblock Max-infinite divisibility.
-\newblock {\em Journal of Applied Probability}, 14(2):309--319.
+\newblock {\em Journal of Applied Probability}, 14(2):309--319, 1977.
 
-\bibitem[Beirlant et~al., 2004]{beirlant2004statistics}
-Beirlant, J., Goegebeur, Y., Segers, J., and Teugels, J.~L. (2004).
+\bibitem{beirlant2004statistics}
+J.~Beirlant, Y.~Goegebeur, J.~Segers, and J.~L. Teugels.
 \newblock {\em Statistics of extremes: theory and applications}, volume 558.
-\newblock John Wiley \& Sons.
+\newblock John Wiley \& Sons, 2004.
 
-\bibitem[Bernard et~al., 2013]{bernard2013clustering}
-Bernard, E., Naveau, P., Vrac, M., and Mestre, O. (2013).
+\bibitem{bernard2013clustering}
+E.~Bernard, P.~Naveau, M.~Vrac, and O.~Mestre.
 \newblock Clustering of maxima: Spatial dependencies among heavy rainfall in
   france.
-\newblock {\em Journal of climate}, 26(20):7929--7937.
+\newblock {\em Journal of climate}, 26(20):7929--7937, 2013.
 
-\bibitem[Bunea et~al., 2020]{10.1214/18-AOS1794}
-Bunea, F., Giraud, C., Luo, X., Royer, M., and Verzelen, N. (2020).
+\bibitem{bunea2020model}
+F.~Bunea, C.~Giraud, X.~Luo, M.~Royer, and N.~Verzelen.
+\newblock Model assisted variable clustering: minimax-optimal recovery and
+  algorithms.
+\newblock {\em The Annals of Statistics}, 48(1):111--137, 2020.
+
+\bibitem{10.1214/18-AOS1794}
+F.~Bunea, C.~Giraud, X.~Luo, M.~Royer, and N.~Verzelen.
 \newblock {Model assisted variable clustering: Minimax-optimal recovery and
   algorithms}.
-\newblock {\em The Annals of Statistics}, 48(1):111 -- 137.
+\newblock {\em The Annals of Statistics}, 48(1):111 -- 137, 2020.
 
-\bibitem[Chautru, 2015]{chautru2015dimension}
-Chautru, E. (2015).
+\bibitem{chautru2015dimension}
+E.~Chautru.
 \newblock Dimension reduction in multivariate extreme value analysis.
-\newblock {\em Electronic journal of statistics}, 9(1):383--418.
+\newblock {\em Electronic journal of statistics}, 9(1):383--418, 2015.
 
-\bibitem[Coles and Tawn, 1991]{10.2307/2345748}
-Coles, S.~G. and Tawn, J.~A. (1991).
+\bibitem{10.2307/2345748}
+S.~G. Coles and J.~A. Tawn.
 \newblock Modelling extreme multivariate events.
 \newblock {\em Journal of the Royal Statistical Society. Series B
-  (Methodological)}, 53(2):377--392.
+  (Methodological)}, 53(2):377--392, 1991.
 
-\bibitem[Cooley et~al., 2010]{COOLEY20102103}
-Cooley, D., Davis, R.~A., and Naveau, P. (2010).
+\bibitem{COOLEY20102103}
+D.~Cooley, R.~A. Davis, and P.~Naveau.
 \newblock The pairwise beta distribution: A flexible parametric multivariate
   model for extremes.
-\newblock {\em Journal of Multivariate Analysis}, 101(9):2103--2117.
+\newblock {\em Journal of Multivariate Analysis}, 101(9):2103--2117, 2010.
 
-\bibitem[Cooley et~al., 2006]{cooley2006variograms}
-Cooley, D., Naveau, P., and Poncet, P. (2006).
+\bibitem{cooley2006variograms}
+D.~Cooley, P.~Naveau, and P.~Poncet.
 \newblock Variograms for spatial max-stable random fields.
 \newblock In {\em Dependence in probability and statistics}, pages 373--390.
-  Springer.
+  Springer, 2006.
 
-\bibitem[Cooley and Thibaud, 2019]{cooley2019decompositions}
-Cooley, D. and Thibaud, E. (2019).
+\bibitem{cooley2019decompositions}
+D.~Cooley and E.~Thibaud.
 \newblock Decompositions of dependence for high-dimensional extremes.
-\newblock {\em Biometrika}, 106(3):587--604.
+\newblock {\em Biometrika}, 106(3):587--604, 2019.
 
-\bibitem[Cormen et~al., 2022]{cormen2022introduction}
-Cormen, T.~H., Leiserson, C.~E., Rivest, R.~L., and Stein, C. (2022).
+\bibitem{cormen2022introduction}
+T.~H. Cormen, C.~E. Leiserson, R.~L. Rivest, and C.~Stein.
 \newblock {\em Introduction to algorithms}.
-\newblock MIT press.
+\newblock MIT press, 2022.
 
-\bibitem[De~Haan et~al., 2006]{de2006extreme}
-De~Haan, L., Ferreira, A., and Ferreira, A. (2006).
+\bibitem{de2006extreme}
+L.~De~Haan, A.~Ferreira, and A.~Ferreira.
 \newblock {\em Extreme value theory: an introduction}, volume~21.
-\newblock Springer.
+\newblock Springer, 2006.
 
-\bibitem[Drees and Sabourin, 2021]{drees2021principal}
-Drees, H. and Sabourin, A. (2021).
+\bibitem{drees2021principal}
+H.~Drees and A.~Sabourin.
 \newblock Principal component analysis for multivariate extremes.
-\newblock {\em Electronic Journal of Statistics}, 15(1):908--943.
+\newblock {\em Electronic Journal of Statistics}, 15(1):908--943, 2021.
 
-\bibitem[Engelke and Hitz, 2020]{engelke2020graphical}
-Engelke, S. and Hitz, A.~S. (2020).
+\bibitem{eisenach2020high}
+C.~Eisenach, F.~Bunea, Y.~Ning, and C.~Dinicu.
+\newblock High-dimensional inference for cluster-based graphical models.
+\newblock {\em Journal of machine learning research}, 21(53), 2020.
+
+\bibitem{engelke2020graphical}
+S.~Engelke and A.~S. Hitz.
 \newblock Graphical models for extremes.
 \newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
-  Methodology)}, 82(4):871--932.
+  Methodology)}, 82(4):871--932, 2020.
 
-\bibitem[Engelke and Volgushev, 2020]{engelke2020structure}
-Engelke, S. and Volgushev, S. (2020).
+\bibitem{engelke2020structure}
+S.~Engelke and S.~Volgushev.
 \newblock Structure learning for extremal tree models.
-\newblock {\em arXiv preprint arXiv:2012.06179}.
+\newblock {\em arXiv preprint arXiv:2012.06179}, 2020.
 
-\bibitem[Falk et~al., 2010]{falk2010laws}
-Falk, M., H{\"u}sler, J., and Reiss, R. (2010).
+\bibitem{falk2010laws}
+M.~Falk, J.~H{\"u}sler, and R.~Reiss.
 \newblock {\em Laws of Small Numbers: Extremes and Rare Events}.
-\newblock Springer Basel.
+\newblock Springer Basel, 2010.
 
-\bibitem[Fomichov and Ivanovs, 2022]{fomichov2022spherical}
-Fomichov, V. and Ivanovs, J. (2022).
+\bibitem{fomichov2022spherical}
+V.~Fomichov and J.~Ivanovs.
 \newblock Spherical clustering in detection of groups of concomitant extremes.
-\newblock {\em Biometrika}.
+\newblock {\em Biometrika}, 2022.
 
-\bibitem[Galambos, 1978]{galambos1978asymptotic}
-Galambos, J. (1978).
+\bibitem{galambos1978asymptotic}
+J.~Galambos.
 \newblock The asymptotic theory of extreme order statistics.
-\newblock Technical report.
+\newblock Technical report, 1978.
 
-\bibitem[Gissibl and Kl{\"u}ppelberg, 2018]{gissibl2018max}
-Gissibl, N. and Kl{\"u}ppelberg, C. (2018).
+\bibitem{gissibl2018max}
+N.~Gissibl and C.~Kl{\"u}ppelberg.
 \newblock Max-linear models on directed acyclic graphs.
-\newblock {\em Bernoulli}, 24(4A):2693--2720.
+\newblock {\em Bernoulli}, 24(4A):2693--2720, 2018.
 
-\bibitem[Goix et~al., 2015]{goix2015learning}
-Goix, N., Sabourin, A., Cl{\'e}men, S., et~al. (2015).
+\bibitem{goix2015learning}
+N.~Goix, A.~Sabourin, S.~Cl{\'e}men, et~al.
 \newblock Learning the dependence structure of rare events: a non-asymptotic
   study.
-\newblock In {\em Conference on Learning Theory}, pages 843--860. PMLR.
+\newblock In {\em Conference on Learning Theory}, pages 843--860. PMLR, 2015.
 
-\bibitem[Gudendorf and Segers, 2010]{gudendorf2010}
-Gudendorf, G. and Segers, J. (2010).
+\bibitem{gudendorf2010}
+G.~Gudendorf and J.~Segers.
 \newblock Extreme-value copulas.
-\newblock In Jaworski, P., Durante, F., H{\"a}rdle, W.~K., and Rychlik, T.,
+\newblock In P.~Jaworski, F.~Durante, W.~K. H{\"a}rdle, and T.~Rychlik,
   editors, {\em Copula Theory and Its Applications}, pages 127--145, Berlin,
-  Heidelberg. Springer Berlin Heidelberg.
+  Heidelberg, 2010. Springer Berlin Heidelberg.
 
-\bibitem[Gumbel, 1960]{gumbel1960}
-Gumbel, E. (1960).
+\bibitem{gumbel1960}
+E.~Gumbel.
 \newblock Distributions de valeurs extrêmes en plusieurs dimensions.
 \newblock {\em Publications de l'institut de Statistique de l'Université de
-  Paris}, 9:171--173.
+  Paris}, 9:171--173, 1960.
 
-\bibitem[Hofert et~al., 2018]{hofert2018hierarchical}
-Hofert, M., Huser, R., and Prasad, A. (2018).
+\bibitem{hofert2018hierarchical}
+M.~Hofert, R.~Huser, and A.~Prasad.
 \newblock Hierarchical archimax copulas.
-\newblock {\em Journal of Multivariate Analysis}, 167:195--211.
+\newblock {\em Journal of Multivariate Analysis}, 167:195--211, 2018.
 
-\bibitem[Huang, 1992]{huang1992statistics}
-Huang, X. (1992).
+\bibitem{huang1992statistics}
+X.~Huang.
 \newblock {\em Statistics of bivariate extreme values}.
-\newblock Thesis Publishers Amsterdam.
+\newblock Thesis Publishers Amsterdam, 1992.
 
-\bibitem[Hüsler and Reiss, 1989]{HUSLER1989283}
-Hüsler, J. and Reiss, R.-D. (1989).
+\bibitem{HUSLER1989283}
+J.~Hüsler and R.-D. Reiss.
 \newblock Maxima of normal random vectors: Between independence and complete
   dependence.
-\newblock {\em Statistics \& Probability Letters}, 7(4):283--286.
+\newblock {\em Statistics \& Probability Letters}, 7(4):283--286, 1989.
 
-\bibitem[Jan{\ss}en and Wan, 2020]{janssen2020k}
-Jan{\ss}en, A. and Wan, P. (2020).
+\bibitem{janssen2020k}
+A.~Jan{\ss}en and P.~Wan.
 \newblock $ k $-means clustering of extremes.
-\newblock {\em Electronic Journal of Statistics}, 14(1):1211--1233.
+\newblock {\em Electronic Journal of Statistics}, 14(1):1211--1233, 2020.
 
-\bibitem[Lalancette et~al., 2021]{lalancette2021rank}
-Lalancette, M., Engelke, S., and Volgushev, S. (2021).
+\bibitem{lalancette2021rank}
+M.~Lalancette, S.~Engelke, and S.~Volgushev.
 \newblock Rank-based estimation under asymptotic dependence and independence,
   with applications to spatial extremes.
-\newblock {\em The Annals of Statistics}, 49(5):2552--2576.
+\newblock {\em The Annals of Statistics}, 49(5):2552--2576, 2021.
 
-\bibitem[Lauritzen, 1996]{lauritzen1996graphical}
-Lauritzen, S.~L. (1996).
+\bibitem{lauritzen1996graphical}
+S.~L. Lauritzen.
 \newblock {\em Graphical models}, volume~17.
-\newblock Clarendon Press.
+\newblock Clarendon Press, 1996.
 
-\bibitem[Le et~al., 2018]{le2018dependence}
-Le, P.~D., Davison, A.~C., Engelke, S., Leonard, M., and Westra, S. (2018).
+\bibitem{le2018dependence}
+P.~D. Le, A.~C. Davison, S.~Engelke, M.~Leonard, and S.~Westra.
 \newblock Dependence properties of spatial rainfall extremes and areal
   reduction factors.
-\newblock {\em Journal of Hydrology}, 565:711--719.
+\newblock {\em Journal of Hydrology}, 565:711--719, 2018.
 
-\bibitem[Lindskog, 2004]{lindskog2004multivariate}
-Lindskog, F. (2004).
+\bibitem{lindskog2004multivariate}
+F.~Lindskog.
 \newblock {\em Multivariate extremes and regular variation for stochastic
   processes}.
-\newblock PhD thesis, ETH Zurich.
+\newblock PhD thesis, ETH Zurich, 2004.
 
-\bibitem[Marcon et~al., 2017]{MARCON20171}
-Marcon, G., Padoan, S., Naveau, P., Muliere, P., and Segers, J. (2017).
+\bibitem{MARCON20171}
+G.~Marcon, S.~Padoan, P.~Naveau, P.~Muliere, and J.~Segers.
 \newblock Multivariate nonparametric estimation of the pickands dependence
   function using bernstein polynomials.
-\newblock {\em Journal of Statistical Planning and Inference}, 183:1--17.
+\newblock {\em Journal of Statistical Planning and Inference}, 183:1--17, 2017.
 
-\bibitem[Marshall and Olkin, 1983a]{marshall1983}
-Marshall, A.~W. and Olkin, I. (1983a).
+\bibitem{marshall1983}
+A.~W. Marshall and I.~Olkin.
 \newblock {Domains of Attraction of Multivariate Extreme Value Distributions}.
-\newblock {\em The Annals of Probability}, 11(1):168 -- 177.
+\newblock {\em The Annals of Probability}, 11(1):168 -- 177, 1983.
 
-\bibitem[Marshall and Olkin, 1983b]{10.1214/aop/1176993666}
-Marshall, A.~W. and Olkin, I. (1983b).
+\bibitem{10.1214/aop/1176993666}
+A.~W. Marshall and I.~Olkin.
 \newblock {Domains of Attraction of Multivariate Extreme Value Distributions}.
-\newblock {\em The Annals of Probability}, 11(1):168 -- 177.
+\newblock {\em The Annals of Probability}, 11(1):168 -- 177, 1983.
 
-\bibitem[Meyer and Wintenberger, 2021]{meyer2021sparse}
-Meyer, N. and Wintenberger, O. (2021).
+\bibitem{meyer2021sparse}
+N.~Meyer and O.~Wintenberger.
 \newblock Sparse regular variation.
-\newblock {\em Advances in Applied Probability}, 53(4):1115--1148.
+\newblock {\em Advances in Applied Probability}, 53(4):1115--1148, 2021.
 
-\bibitem[Naveau et~al., 2009]{naveau2009modelling}
-Naveau, P., Guillou, A., Cooley, D., and Diebolt, J. (2009).
+\bibitem{naveau2009modelling}
+P.~Naveau, A.~Guillou, D.~Cooley, and J.~Diebolt.
 \newblock Modelling pairwise dependence of maxima in space.
-\newblock {\em Biometrika}, 96(1):1--17.
+\newblock {\em Biometrika}, 96(1):1--17, 2009.
 
-\bibitem[Papastathopoulos and Strokorb, 2016]{papastathopoulos2016conditional}
-Papastathopoulos, I. and Strokorb, K. (2016).
+\bibitem{papastathopoulos2016conditional}
+I.~Papastathopoulos and K.~Strokorb.
 \newblock Conditional independence among max-stable laws.
-\newblock {\em Statistics \& Probability Letters}, 108:9--15.
+\newblock {\em Statistics \& Probability Letters}, 108:9--15, 2016.
 
-\bibitem[Pickands, 1981]{pickands1981multivariate}
-Pickands, J. (1981).
+\bibitem{pickands1981multivariate}
+J.~Pickands.
 \newblock Multivariate extreme value distribution.
 \newblock {\em Proceedings 43th, Session of International Statistical
-  Institution, 1981}.
+  Institution, 1981}, 1981.
 
-\bibitem[Pollard, 1981]{pollard1981strong}
-Pollard, D. (1981).
+\bibitem{pollard1981strong}
+D.~Pollard.
 \newblock Strong consistency of k-means clustering.
-\newblock {\em The Annals of Statistics}, pages 135--140.
+\newblock {\em The Annals of Statistics}, pages 135--140, 1981.
 
-\bibitem[Resnick, 2008]{resnick2008extreme}
-Resnick, S. (2008).
+\bibitem{resnick2008extreme}
+S.~Resnick.
 \newblock {\em Extreme Values, Regular Variation, and Point Processes}.
-\newblock Applied probability. Springer.
+\newblock Applied probability. Springer, 2008.
 
-\bibitem[Resnick, 2007]{resnick2007heavy}
-Resnick, S.~I. (2007).
+\bibitem{resnick2007heavy}
+S.~I. Resnick.
 \newblock {\em Heavy-tail phenomena: probabilistic and statistical modeling}.
-\newblock Springer Science \& Business Media.
+\newblock Springer Science \& Business Media, 2007.
 
-\bibitem[Ryabko, 2017]{NIPS2017_37d097ca}
-Ryabko, D. (2017).
+\bibitem{NIPS2017_37d097ca}
+D.~Ryabko.
 \newblock Independence clustering (without a matrix).
-\newblock In Guyon, I., Luxburg, U.~V., Bengio, S., Wallach, H., Fergus, R.,
-  Vishwanathan, S., and Garnett, R., editors, {\em Advances in Neural
-  Information Processing Systems}, volume~30. Curran Associates, Inc.
+\newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
+  S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information
+  Processing Systems}, volume~30. Curran Associates, Inc., 2017.
 
-\bibitem[Saunders et~al., 2021]{saunders2021regionalisation}
-Saunders, K., Stephenson, A., and Karoly, D. (2021).
+\bibitem{saunders2021regionalisation}
+K.~Saunders, A.~Stephenson, and D.~Karoly.
 \newblock A regionalisation approach for rainfall based on extremal dependence.
-\newblock {\em Extremes}, 24(2):215--240.
+\newblock {\em Extremes}, 24(2):215--240, 2021.
 
-\bibitem[Segers, 2020]{segers2020one}
-Segers, J. (2020).
+\bibitem{segers2020one}
+J.~Segers.
 \newblock One-versus multi-component regular variation and extremes of markov
   trees.
-\newblock {\em Advances in Applied Probability}, 52(3):855--878.
+\newblock {\em Advances in Applied Probability}, 52(3):855--878, 2020.
 
-\bibitem[Simpson et~al., 2020]{simpson2020determining}
-Simpson, E.~S., Wadsworth, J.~L., and Tawn, J.~A. (2020).
+\bibitem{simpson2020determining}
+E.~S. Simpson, J.~L. Wadsworth, and J.~A. Tawn.
 \newblock Determining the dependence structure of multivariate extremes.
-\newblock {\em Biometrika}, 107(3):513--532.
+\newblock {\em Biometrika}, 107(3):513--532, 2020.
 
-\bibitem[Stephenson, 2003]{stephenson2003simulating}
-Stephenson, A. (2003).
+\bibitem{stephenson2003simulating}
+A.~Stephenson.
 \newblock Simulating multivariate extreme value distributions of logistic type.
-\newblock {\em Extremes}, 6(1):49--59.
+\newblock {\em Extremes}, 6(1):49--59, 2003.
 
-\bibitem[Takahashi, 1987]{Takahashi1987SomePO}
-Takahashi, R. (1987).
+\bibitem{Takahashi1987SomePO}
+R.~Takahashi.
 \newblock Some properties of multivariate extreme value distributions and
   multivariate tail equivalence.
 \newblock {\em Annals of the Institute of Statistical Mathematics},
-  39:637--647.
+  39:637--647, 1987.
 
-\bibitem[Takahashi, 1994]{takahashi1994asymptotic}
-Takahashi, R. (1994).
+\bibitem{takahashi1994asymptotic}
+R.~Takahashi.
 \newblock Asymptotic independence and perfect dependence of vector components
   of multivariate extreme statistics.
-\newblock {\em Statistics \& Probability Letters}, 19(1):19--26.
+\newblock {\em Statistics \& Probability Letters}, 19(1):19--26, 1994.
 
-\bibitem[Tawn, 1990]{10.1093/biomet/77.2.245}
-Tawn, J.~A. (1990).
+\bibitem{10.1093/biomet/77.2.245}
+J.~A. Tawn.
 \newblock {Modelling multivariate extreme value distributions}.
-\newblock {\em Biometrika}, 77(2):245--253.
+\newblock {\em Biometrika}, 77(2):245--253, 06 1990.
 
-\bibitem[Tsybakov, 2014]{tsybakov2014aggregation}
-Tsybakov, A.~B. (2014).
+\bibitem{tsybakov2014aggregation}
+A.~B. Tsybakov.
 \newblock Aggregation and high-dimensional statistics (preliminary notes of
   saint-flour lectures, july 8-20, 2013).
+\newblock 2014.
 
-\bibitem[van~der Vaart et~al., 1996]{bestbook}
-van~der Vaart, A., van~der Vaart, A., van~der Vaart, A., and Wellner, J.
-  (1996).
+\bibitem{bestbook}
+A.~van~der Vaart, A.~van~der Vaart, A.~van~der Vaart, and J.~Wellner.
 \newblock {\em Weak Convergence and Empirical Processes: With Applications to
   Statistics}.
-\newblock Springer Series in Statistics. Springer.
+\newblock Springer Series in Statistics. Springer, 1996.
 
 \end{thebibliography}

@@ -1,49 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ai_block_model_biv.aux
-The style file: apalike.bst
+The style file: abbrv.bst
 Database file #1: pick.bib
 Warning--empty institution in galambos1978asymptotic
 Warning--empty journal in tsybakov2014aggregation
-You've used 51 entries,
-            1935 wiz_defined-function locations,
-            772 strings with 11821 characters,
-and the built_in function-call counts, 20080 in all, are:
-= -- 1987
-> -- 763
-< -- 40
-+ -- 254
-- -- 247
-* -- 1708
-:= -- 3487
-add.period$ -- 158
-call.type$ -- 51
-change.case$ -- 363
-chr.to.int$ -- 50
-cite$ -- 53
-duplicate$ -- 757
-empty$ -- 1443
-format.name$ -- 328
-if$ -- 3932
-int.to.chr$ -- 2
-int.to.str$ -- 0
-missing$ -- 58
-newline$ -- 257
-num.names$ -- 157
-pop$ -- 310
+You've used 53 entries,
+            2118 wiz_defined-function locations,
+            807 strings with 12235 characters,
+and the built_in function-call counts, 17462 in all, are:
+= -- 1736
+> -- 814
+< -- 8
++ -- 321
+- -- 265
+* -- 1267
+:= -- 2960
+add.period$ -- 165
+call.type$ -- 53
+change.case$ -- 276
+chr.to.int$ -- 0
+cite$ -- 55
+duplicate$ -- 631
+empty$ -- 1357
+format.name$ -- 265
+if$ -- 3592
+int.to.chr$ -- 0
+int.to.str$ -- 53
+missing$ -- 60
+newline$ -- 268
+num.names$ -- 110
+pop$ -- 259
 preamble$ -- 1
-purify$ -- 372
+purify$ -- 232
 quote$ -- 0
-skip$ -- 578
+skip$ -- 423
 stack$ -- 0
-substring$ -- 1506
-swap$ -- 89
+substring$ -- 1181
+swap$ -- 93
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 288
+type$ -- 194
 warning$ -- 2
-while$ -- 172
-width$ -- 0
-write$ -- 659
+while$ -- 178
+width$ -- 55
+write$ -- 580
 (There were 2 warnings)
