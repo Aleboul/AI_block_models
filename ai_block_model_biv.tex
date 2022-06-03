@@ -32,6 +32,7 @@
 
 
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\SECO}{\mathrm{SECO}}
 \newtheorem{definition}{Definition}
 \newtheorem{axiom}{Axiom}
 \newtheorem{lemma}{Lemma}
@@ -114,7 +115,7 @@ showstringspaces=false
 	
 	The problem of variable clustering is that of grouping similar components of a $d$-dimensional random vector $\textbf{X} = (X_1,\dots,X_d)$. Those groups are referred as clusters and unknown to the statistician who wants to recover them from $\textbf{X}_1, \dots, \textbf{X}_n$, $n$ independent copies of $\textbf{X}$. Loosely speaking, we are able to perform clustering in two distinguish cases : by partitionning the set $\{1,\dots, n\}$ of row indices or by partitioning with respect to column indices the set $\{1,\dots,d\}$. The first problem will be designated as the data clustering problem whereas the second corresponds to the variable clustering problem discussed here so far. In data clustering, clusters are clouds of observations and corresponds to respective realizations of one of the mixture distribution, which is a distribution on the whole $\mathbb{R}^d$. In this framework with \emph{i.i.d.} replications, \cite{pollard1981strong} shows the strong consistency of $k$-means clustering where the result was replicated in the context of extreme by \cite{janssen2020k} for spherical $k$-means. In contrast, in variable clustering, the effort is to define cluster models relate to subsets of components $X_j$, of $\textbf{X} \in \mathbb{R}^d$. In this framework, we do not longer want to cluster independent entities but, \emph{a contrario}, to cluster those who are strongly dependent. Variable clustering is of prime interest in weather extremes, with examples stemming from regionalisation, see \emph{e.g.} \cite{bernard2013clustering,bador2015spatial, saunders2021regionalisation}, where one observes spatial phenomena at finitely many sites. An interesting special case is to cluster those sites according to their extremal dependencies. They include applications of $K$-means or hierarchical clustering with a dissimilarity designed for extremes. The statistical properties of those procedures have received a very limited amount of investigation. It is not currently known what probabilistic models on $\textbf{X}$ can be estimated by these techniques. We will consider here model-based clustering where population-level clusters are clearly defined, offering interpretability and a benchmark to assess the performance of a peculiar clustering algorithm.
 	
-	In this work, we propose the AI-block model as a model for variable clustering in extreme-value theory and show that the clusters given by this model are uniquely defined. We then motivate and develop an algorithm tailored to the model with the help of the SECO metric. We thus analyze its performance in terms of exact cluster recovery, for minimally separated clusters, under appropriately defined cluster separation metric.
+	In this work, we propose the AI-block model as a model for variable clustering in extreme-value theory and show that the clusters given by this model are uniquely defined. We then motivate and develop an algorithm tailored to the model with the help of the $\SECO$ metric. We thus analyze its performance in terms of exact cluster recovery, for minimally separated clusters, under appropriately defined cluster separation metric.
 	
 	\paragraph{Notations} We use the following notations throughout the paper. All bold letters $\textbf{x}$ corresponds to vector in $\mathbb{R}^d$. By considering $B \subseteq \{1,\dots,d\}$, we denote the $|B|$-subvector of $\textbf{x}$ by $\textbf{x}^{(B)} = (x_j)_{j \in B}$. Similarly, let $G$ a cumulative distributive function on $[0,1]^d$, $G^{(B)}$ is defined as
 	\begin{equation*}
@@ -122,7 +123,7 @@ showstringspaces=false
 	\end{equation*}
 	where $(\textbf{1},\textbf{x}^{(B)}, \textbf{1})$ has $j$th component equals to $x_j \mathds{1}_{\{j \in B\}} + \mathds{1}_{\{ j \notin B\}}$. In a similar way, we note $(\textbf{0}, x^{(B)}, \textbf{0})$ the vector in $\mathbb{R}^d$ which equals $x_j$ if $j \in B$ and $ 0 $ otherwise. We will denote the $d$ consecutive integer set starting from 1 as $\llbracket d \rrbracket$. Weak convergence of processes are denoted by '$\rightsquigarrow$'. The notation $\delta_x$ corresponds to the dirac measure at $x$. We define by $\textbf{X} \in \mathbb{R}^d$ a random vector with law $G$. Let $O = \{O_k\}_{k= 1 ,\dots, K}$ be a partition of $\{1,\dots,d\}$ into $K$ groups and let $s : \{1,\dots,d\} \rightarrow \{1,\dots,K\}$ be an index assignement function defined by $O_k = \{a \in \{1,\dots,d\} : s(a) = k\} = \{i_{k,1}, \dots, i_{k,d_k}\}$ with $d_1+\dots+d_K = d$.
 	
-	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we describe AI-block models designed for variable clustering. Central to our work is a new metric for variable clustering in AI-block models. Standard clustering techniques employ dissimilariy metric between two variables. In contrast our metric is based on the Sum of Extremal COefficient (SECO) between two groups of variables, a measure that attempts to capture how two groups of variables are independent relative to their extremes. We discuss this in detail in Section \ref{sec:SECO}. In Section \ref{sec:estimation}, we develop a new clustering algorithm based on SECO. It has moderate computational complexity, polynomial in $d$. We prove that SECO can recover correctly the target partition, with high probability. All proofs are deferred to the Appendix.
+	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we describe AI-block models designed for variable clustering. Central to our work is a new metric for variable clustering in AI-block models. Standard clustering techniques employ dissimilariy metric between two variables. In contrast our metric is based on the Sum of Extremal COefficient ($\SECO$) between two groups of variables, a measure that attempts to capture how two groups of variables are independent relative to their extremes. We discuss this in detail in Section \ref{sec:SECO}. In Section \ref{sec:estimation}, we develop a new clustering algorithm based on $\SECO$. It has moderate computational complexity, polynomial in $d$. We prove that $\SECO$ can recover correctly the target partition, with high probability. All proofs are deferred to the Appendix.
 	
 	\section{A model for variable clustering}
 	\label{sec:variable_clust}
@@ -317,9 +318,9 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\begin{equation*}
 		A\left(\frac{1}{d}, \dots, \frac{1}{d}\right) = \frac{d_1}{d} A^{(O_1)}\left( \frac{1}{d_1}, \dots, \frac{1}{d_1} \right) + \frac{d_2}{d} A^{(O_2)}\left( \frac{1}{d_2}, \dots, \frac{1}{d_2} \right).
 	\end{equation*}
-	By denoting $\theta = d \, A (d^{-1}, \dots, d^{-1})$ the so-called extremal coefficient, we restate the equation above as the SECO (Sum of Extremal COefficients) metric
+	By denoting $\theta = d \, A (d^{-1}, \dots, d^{-1})$ the so-called extremal coefficient, we restate the equation above as the $\SECO$ (Sum of Extremal COefficients) metric
 	\begin{equation}
-		SECO(O_1, O_2) = \theta^{(O_1)} + \theta^{(O_2)} - \theta.
+		\SECO(O_1, O_2) = \theta^{(O_1)} + \theta^{(O_2)} - \theta.
 	\end{equation}
 	Loosely speaking, if $\textbf{X}^{(O_1)}$ and $X^{(O_2)}$ are mutually independent, thus a characterizing property is that the extremal coefficient of $\textbf{X}$ is written as the sum of the extremal coefficients $\theta^{(O_1)}$ and $\theta^{(O_2)}$ of $\textbf{X}^{(O_1)}$ and $\textbf{X}^{(O_2)}$ respectively.
 	
@@ -510,7 +511,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\begin{remark}
 		Therefore, Corrolary \ref{corr:exact_recovery} say that $\tau$ is of order $\sqrt{\ln(d)} n^{-1}$, thresholding $\hat{\chi}(a,b)$ at level $\tau$ guarantees exact recovery, whenever the separation MECO is at least $2 \tau$. Such results are similar to the hard thresholding estimator in Gaussian sequence model, see e.g. Section 4.1 of \cite{tsybakov2014aggregation} where similar bounds are found.
 	\end{remark}
-	Note that above, independently of any distributional assumption, the $SECO$ metric and its related estimator $\widehat{SECO}$ is sufficient to recover the original clusters. This results is quite interesting, since it is stronger than what is known in the classical, non-extremal independence clustering \cite{NIPS2017_37d097ca}. Indeed, in classical theory, one ask the existence of density in order to compute the mutual information between two vector $\textbf{X}^{(\hat{C})}$ and $\textbf{X}^{(\hat{R})}$. Here, we just use a simple statistic, which can be estimated non parametrically and without the existence of densities to recover our clusters. A similar statement could be obtained for Gaussian models where the correlation coefficient between random variables gives knowledge about their dependences as the extremal coefficient gives for extreme value distributions. Such stronger results obtained in extreme value theory but not in the classical theory are also valid for trees, we refer to \cite{engelke2020structure} for further details.
+	Note that above, independently of any distributional assumption, the $\SECO$ metric and its related estimator $\widehat{\SECO}$ is sufficient to recover the original clusters. This results is quite interesting, since it is stronger than what is known in the classical, non-extremal independence clustering \cite{NIPS2017_37d097ca}. Indeed, in classical theory, one ask the existence of density in order to compute the mutual information between two vector $\textbf{X}^{(\hat{C})}$ and $\textbf{X}^{(\hat{R})}$. Here, we just use a simple statistic, which can be estimated non parametrically and without the existence of densities to recover our clusters. A similar statement could be obtained for Gaussian models where the correlation coefficient between random variables gives knowledge about their dependences as the extremal coefficient gives for extreme value distributions. Such stronger results obtained in extreme value theory but not in the classical theory are also valid for trees, we refer to \cite{engelke2020structure} for further details.
 	
 	Some comments on the implications of the above result are in order. On a high level, larger dimensions $d$ lead to an higher bound of the threshold $\alpha$. This is also implicated for the bound of the $MECO$ metric. Thus, whereas the dimension $d$ increases, the dependence between each component should be stronger in order to distinguish between noise and a signal.
 	
@@ -558,22 +559,78 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
     	\caption{Exact recovery rate for Experiments E1, E2 and E3. }
 	\end{figure}
 	
+	\subsection{Data driven choice of the threshold}
+	
+	The threshold $\alpha$ in Corollary \ref{corr:exact_recovery} does not involve any unknown quantity and it can be used directly. In practice, however, it is advisable to use a data-driven choice of the threshold for Algorithm \ref{alg:rec_pratic}. We propose to use the following type of cross-validation for this purpose. The idea is to use the $\SECO$ criteria presented in Section \ref{sec:SECO}. Let $\textbf{X} \sim O$, given a partition $\hat{O} = \{ \hat{O}_k \}_k$, we know from Proposition \ref{prop:oracle} that the $\SECO$ similarity given by
+	\begin{equation*}
+		\SECO(\hat{O}) = \sum_{k} \theta^{(\hat{O}_k)} - \theta
+	\end{equation*}
+	is equal to $0$ if and only if $\hat{O} \leq \bar{O}$. We thus construct a loss function given by the $\SECO$ where we evaluate its value over a grid of the $\alpha$ values. The value of $\alpha$ which the $\SECO$ similarity has minimum values is also the value of $\alpha$ for which we have consistent recovery of our communities. Our procedure ask to split the data in three independent sub-sets : on one subset, we construct a set of candidate partitions. The other two sets are used to estimate the extremal dependence coefficient for the whole distribution $\textbf{X}$ and the sub-vector of the candidate partition $\textbf{X}^{(\hat{O}_k)}$ respectively. Let $\hat{\theta}_{(i)}$, $i \in \{1,2,3\}$ be the madogram-based estimator of $\theta$ based on three independent samples, each of size $n$. The cross-validation based estimator of the $\SECO$ is thus defined as the following
+	\begin{equation}
+		\label{eq:seco_cv}
+		\widehat{\SECO}(\hat{O}) = \sum_{k} \hat{\theta}^{(\hat{O}_k)}_{(1)} - \hat{\theta}_{(2)}.
+	\end{equation}
+	Let $\widehat{\mathcal{O}}$ be a collection of partitions computed with Algorithm \ref{alg:rec_pratic} from the third sample, by varying $\alpha$ around its theoretical optimal value (of order $\sqrt{\ln(d) n^{-1}}$, on a fine grid. For any $\hat{O} \in \widehat{\mathcal{O}}$, we evaluate our cross-validation $\SECO$ in \eqref{eq:seco_cv}. Proposition \ref{prop:cv} offers theoretical support for this procedure, for large $n$. It shows that the minimum of the proposed criterion, over a grid that is fine enough to include the target $\bar{O}$, is asymptotically attained at $\bar{O}$, in expectation.
+	\begin{proposition}
+	\label{prop:cv}
+		Let $\textbf{X} \sim O$, then we have
+		\begin{equation*}
+			\underset{n \rightarrow \infty}{\lim} \mathbb{E}\left[ \widehat{\SECO}(\bar{O}) \right] < \underset{n \rightarrow \infty}{\lim} \mathbb{E}\left[ \widehat{\SECO}(\hat{O})\right], \quad \hat{O} \not\leq \bar{O}.
+		\end{equation*}
+	\end{proposition}	
+	
+	To illustrate how the cross-validation $\SECO$ enables selection of $\alpha$ numerically, we use the case $n = 800$ and $d = 1600$ to study the high-dimensional performance of our cross validation approach. 
+	
+	We show the relationship between the average $\SECO$ and exact recovery percentages in Figure \ref{fig:cv} by our algorithm. This figure shows that the optimal ranges of $\alpha$ values for high exact recovery percentages are also associated with low average $\SECO$ values.
+	
+	\begin{figure}[!htp]
+    
+                \begin{subfigure}{.33\textwidth}
+                  \centering
+                  \includegraphics[width=.9\linewidth,height=5.5cm]{figure/model_1CV.pdf}
+                  \caption{E1}
+                  \label{fig:sfig_cv1}
+                \end{subfigure}%
+                \begin{subfigure}{.33\textwidth}
+                  \centering
+                  \includegraphics[width=.9\linewidth,height=5.5cm]{figure/model_2CV.pdf}
+                  \caption{E2}
+                  \label{fig:sfig_cv2}
+                \end{subfigure}
+                \begin{subfigure}{.33\textwidth}
+                  \centering
+                  \includegraphics[width=.9\linewidth,height=5.5cm]{figure/model_3CV.pdf}
+                  \caption{E3}
+                  \label{fig:sfig_cv3}
+                \end{subfigure}%
+                \hspace{\fill}
+    	\caption{Average $\SECO$ (blue) and exact recovery percentages (red) across $100$ runs. For better illustration, the $\SECO$ are standardized first by substracting the minimal $\SECO$ in each figure, and the standardized $\SECO$ added by $1$ are then plotted on the logarithmic scale.}
+    	\label{fig:cv}
+	\end{figure}
+	 
+	
 		\subsection{Weak asymptotic dependence block model}
 		
 		Recall that the framework of an AI-block model is required for our theoretical guarantees. Here, we consider a scenario where the blocks have common elements which exhibits a lower dependence among extremes. To do so, we consider the same framework in Section 6.3. of \cite{fomichov2022spherical}. Half of the observations come from the (randomly sampled) Hüsler-Reiss model with two groups $\{1,\dots,40\}, \{41,\dots, 100\}$ and half form an analoguous model with two groups $\{21,\dots,60\}, \{1,\dots,20,61,\dots,100\}$. The four block to be identified is thus $\{1,\dots,20\}$, $\{21,\dots,40\}$, $\{41,\dots,60\}$ and $\{61,\dots,100\}$. The estimated matrix of tail dependence $\chi(a,b)$ where $a,b \in \llbracket d \rrbracket$ is presented in Figure \ref{fig:sfig_chiab}. We indeedly observe $4$ blocks which exhibits a strong asymptotic dependence where some blocks have common elements with a weaker dependence. This image may give a false feeling that identification of groups is easy, and so we reorder the indices according where the results might be found in Figure \ref{fig:sfig_chiab_sampled}. Clearly, no clear pattern emerges from it.
 	\begin{figure}[!htp]
     \label{fig:chiab}
-                \begin{subfigure}{.5\textwidth}
+                \begin{subfigure}{.33\textwidth}
                   \centering
-                  \includegraphics[width=.9\linewidth,height=5.5cm]{figure/chiab.pdf}
+                  \includegraphics[width=.9\linewidth,height=4.5cm]{figure/chiab.pdf}
                   \caption{Estimated ($\chi(a,b)$)}
                   \label{fig:sfig_chiab}
                 \end{subfigure}%
-                \begin{subfigure}{.5\textwidth}
+                \begin{subfigure}{.33\textwidth}
                   \centering
-                  \includegraphics[width=.9\linewidth,height=5.5cm]{figure/chiab_sampled.pdf}
-                  \caption{Reordering of estimated ($\chi(a,b)$)}
+                  \includegraphics[width=.9\linewidth,height=4.5cm]{figure/chiab_sampled.pdf}
+                  \caption{Reordering}
                   \label{fig:sfig_chiab_sampled}
+                \end{subfigure}
+                \begin{subfigure}{.33\textwidth}
+                  \centering
+                  \includegraphics[width=.9\linewidth,height=4.5cm]{figure/exact_recov_rate_model_4.pdf}
+                  \caption{Exact recovery rate}
+                  \label{fig:sfig_results_model_4}
                 \end{subfigure}
     	\caption{Block models with weak asymptotic dependence.}
 	\end{figure}
@@ -785,6 +842,27 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\end{equation*}
 		with probability higher than $1 - 
 		8d^{-2\gamma}$. The result then follows from Proposition \ref{prop:exact_recovery}, since $|\hat{\theta} - \theta|_{\infty} \leq 18 \sqrt{\frac{4(1+\gamma)}{n} \ln(d)}$ with probability higher than $1-8d^{-2\gamma}$.
+	\end{proof}
+	
+	\begin{proof}[Proof of Proposition \ref{prop:cv}]
+	
+		As $\hat{\theta}_{(i)}$ is strongly consistent for $i \in \{1,2,3\}$, we obtain that
+		\begin{equation*}
+			\widehat{\SECO}(\bar{O}) \overunderset{\textrm{a.s.}}{n \rightarrow \infty}{\longrightarrow} \SECO(\bar{O}) = 0			
+		\end{equation*}
+		Using Lebesgue's theorem, we obtain
+		\begin{equation*}
+			\underset{n \rightarrow \infty}{\lim}\mathbb{E}\left[ \widehat{\SECO}(\bar{O}) \right] = 0.
+		\end{equation*}	
+		Furthermore, applying again Lebesgue theorem
+		\begin{equation*}
+			0 < \mathbb{E} \left[ \SECO(\hat{O}) \right] = \underset{n \rightarrow \infty}{\lim} \mathbb{E}\left[\widehat{\SECO}(\hat{O}) \right].
+		\end{equation*}
+		To conclude,
+		\begin{equation*}
+		\underset{n \rightarrow \infty}{\lim}\mathbb{E}\left[ \widehat{\SECO}(\bar{O}) \right] < \underset{n \rightarrow \infty}{\lim} \mathbb{E}\left[\widehat{\SECO}(\hat{O}) \right].
+		\end{equation*}
+		What had to be proven.
 	\end{proof}
 	
 	\section{Proofs of auxiliary results}
