@@ -317,30 +317,77 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	
 	\section{Consistent estimation of minimaly separated clusters via SECO}
 	\label{sec:estimation}
-	In this section, we propose an estimation approach that utilizes nonparametric estimation of the Pickands dependence function and we use it to recover clusters.
-	Let $\textbf{X}_1, \dots, \textbf{X}_n$ be i.i.d. copies of $\textbf{X}$. The estimator that we present is based on the madogam concept (\cite{cooley2006variograms, MARCON20171}), a notion borrowed from geostatistics in order to capture the spatial dependence structure. Our estimator is defined as 
+	In this section, we propose an estimation approach that utilizes nonparametric estimation of the Pickands dependence function and we use it to recover clusters. Consider $d$-variate time series $\textbf{Z}_t = (Z_{t,1},\dots, Z_{t,d})$, $t \in \mathbb{Z}$ with continuous univariate stationary margins. A sample of size $n$ is divided into $k$ blocks of length $m$, so that $k = \lfloor n/m \rfloor$, the integer part of $n/m$, and possibly a remainder block of length $n-km$. The maxima of the $ith$ block in the $jth$ component is denoted by
+	\begin{equation*}
+		M_{m,i,j} = \max \left\{ X_{t,j} \, : \, t \in (im-m,im] \cap \mathbb{Z} \right\}.
+	\end{equation*}
+	Let us denote by $\textbf{M}_{m,i} = (M_{m,i,1}, \dots, M_{m,i,d})$ the vector of the componentwise maxima in the $i$th block. For fixed block length $m$, the sequence of blocks maxima $(M_{m,i})_i$ is a stationary process too.
+	
+	The distribution function of the block maxima are denoted by
+	\begin{equation*}
+		G_m(\textbf{x}) = \mathbb{P}\left\{ M_{m,1} \leq \textbf{x} \right\}, \quad G_{m,j} (x_j) = \mathbb{P}\left\{ M_{m,i,j} \leq x_j \right\},
+	\end{equation*}
+	with $\textbf{x} \in \mathbb{R}^d$ and $j \in \{1,\dots,d\}$. Let $C_m$ be the unique (as the margins of $\textbf{M}_{m,1}$ are continuous) copula of $G_m$. In the present context of serial dependence, the domain of attraction condition reads as follows 
+	\begin{Assumption}{B}
+		\label{ass:domain}
+		There exists a copula $C$ such that
+		\begin{equation*}
+			\underset{m \rightarrow \infty}{\lim} C_m(\textbf{u}) = C(\textbf{u}), \quad (\textbf{u} \in [0,1]^d).
+		\end{equation*}
+	\end{Assumption}
+	Under further conditions on serial dependence, there exists three possible non-degenerate asymptotic forms for the distribution of the maximum $M_{m,1,j}$ (see \cite{leadbetter1974extreme}) or, in case of multivariate, that $C_m$ is in the domain of attraction of an extreme value copula (\cite{hsing1989extreme}). Typically, the serial dependence of the time series $(\textbf{Z}_t)$ is controlled via mixing coefficients. For two $\sigma$-fields $\mathcal{A}_1$ and $\mathcal{A}_2$ of a probability space $(\Omega, \mathcal{A}, \mathbb{P})$, let
+	\begin{align*}
+		&\alpha(\mathcal{A}_1, \mathcal{A}_2) = \underset{A_1 \in \mathcal{A}_1, A_2 \in \mathcal{A}_2}{\sup} \left| \mathbb{P}(A \cap B) - \mathbb{P}(A) \mathbb{P}(B) \right|, \\ &\beta(\mathcal{A}_1, \mathcal{A}_2) = \sup \frac{1}{2} \sum_{i,j \in I \times J} \left| \mathbb{P}(A_i \cap B_j) - \mathbb{P}(A_i) \mathbb{P}(B_j) \right|,
+	\end{align*}
+	where the latter is taken over all finite partitions $(A_i)_{i\in I}$ and $(B_j)_{j \in J}$ of coefficients of a time series $(\textbf{Z}_t)_{t \in \mathbb{Z}}$ are defined for $n \geq 1$
+	\begin{equation*}
+		\alpha(n) = \underset{t \in \mathbb{Z}}{\sup} \, \alpha(\mathcal{F}_t, \mathcal{G}_{t+n}), \quad \beta(n) = \underset{t \in \mathbb{Z}}{\sup} \, \beta(\mathcal{F}_t, \mathcal{G}_{t+n}),
+	\end{equation*}
+	where $\mathcal{F}_k = \sigma(Z_t, \,  t \leq k)$ and $\mathcal{G}_\ell = \sigma(Z_t, \, t \geq \ell)$.
+	
+	We now state conditions under the block size $m$ and the number of blick size as in \cite{bucher2014extreme}.
+	
+	\begin{Assumption}{C}
+	\label{ass:regularity}
+	There exists a positive integer sequence $\ell_n$ such that the following statement holds:
+	\begin{enumerate}
+	\item $m_n \rightarrow \infty$ and $m_n = o (n)$ ;
+	\item $\ell_n \rightarrow \infty$ and $\ell_n = o(m_n)$;
+	\item $k_n \alpha(\ell_n) = o(1)$ and $(m_n / \ell_n) \alpha(\ell_n) = o(1)$; \label{ass:leadbetter}
+	\item $\sqrt{k_n} \beta(m_n) = o(1)$.
+	\end{enumerate}
+	\end{Assumption}
+	
+	Condition \ref{ass:leadbetter} guarantees that the limit $C$ is an extreme value copula by Theorem 4.2 of \cite{hsing1989extreme}. The other conditions gives the necessary control over the serial dependence of the time series $(\textbf{Z}_t)$ such that the empirical copula estimator of $C_m$ centered by $C$ and normalized by $\sqrt{k}$ admits an asymptotic form  which is a tight Gaussian process as stated in Corollary 3.6 in \cite{bucher2014extreme}. For that purpose, we need a last, but classical, condition over the derivative of the limiting copula, that is
+	
+	\begin{Assumption}{D}
+	\label{ass:smooth}
+	For any $j \in \{1,\dots,d\}$, the $j$th first order partial derivative $\dot{C}_j = \partial C / \partial u_j$ exists and is continuous on $\{ u \in [0,1]^d, u_j \in (0,1)\}$.
+	\end{Assumption}
+	
+	The estimator of the Pickands dependence function that we present is based on the madogam concept (\cite{cooley2006variograms, MARCON20171}), a notion borrowed from geostatistics in order to capture the spatial dependence structure. Our estimator is defined as 
 	\begin{equation}
-		\hat{A}_n(\textbf{t}) = \frac{\hat{\nu}_n(\textbf{t}) + c(\textbf{t})}{1-\hat{\nu}_n(\textbf{t})-c(\textbf{t})},
+		\hat{A}_{n,m}(\textbf{t}) = \frac{\hat{\nu}_{n,m}(\textbf{t}) + c(\textbf{t})}{1-\hat{\nu}_{n,m}(\textbf{t})-c(\textbf{t})},
 	\end{equation}
 	where
 	\begin{align*}
-		& \hat{\nu}_n(\textbf{t}) = \frac{1}{n} \sum_{j=1}^n \left[\bigvee_{j=1}^d \left\{ G_{n,j} (X_{i,j}) \right\}^{1/t_j} - \frac{1}{d} \sum_{j=1}^d \left\{ G_{n,j}(X_{i,j}) \right\}^{1/t_j} \right], \\
+		& \hat{\nu}_{n,m}(\textbf{t}) = \frac{1}{n} \sum_{j=1}^n \left[\bigvee_{j=1}^d \left\{ \hat{G}_{n,m,j} (M_{m,i,j}) \right\}^{1/t_j} - \frac{1}{d} \sum_{j=1}^d \left\{ \hat{G}_{n,m,j}(X_{m,i,j}) \right\}^{1/t_j} \right], \\
 		& c(\textbf{t}) = \frac{1}{d} \sum_{j=1}^d \frac{t_j}{1+t_j}.
 	\end{align*}
-	by convention, here $u^{1/0} = 0$ for $u \in (0,1)$. One can use our results presented to design a new test of stochastic vectorial independence. Let $k\in\{1,\dots,K\}$ and let $\hat{A}_{n}^{(O_k)}(\textbf{t}^{(O_k)}) = \hat{A}_n(\textbf{0},\textbf{t}^{(O_k)}, \textbf{0})$ denotes the empirical Pickands dependence function associated to the $k$-th subvector of $X$. Then consider the empirical process
+	by convention, here $u^{1/0} = 0$ for $u \in (0,1)$. One can use our results presented to design a new test of stochastic vectorial independence. Let $k\in\{1,\dots,K\}$ and let $\hat{A}_{n,m}^{(O_k)}(\textbf{t}^{(O_k)}) = \hat{A}_{n,m}(\textbf{0},\textbf{t}^{(O_k)}, \textbf{0})$ denotes the empirical Pickands dependence function associated to the $k$-th subvector of $X$. Then consider the empirical process
 	\begin{equation}
-		\mathcal{E}_{nK} (\textbf{t}) = \sqrt{n}\left(\hat{A}_n(\textbf{t}) - \hat{A}_{n\Sigma}(\textbf{t}) \right),
+		\mathcal{E}_{nK} (\textbf{t}) = \sqrt{n}\left(\hat{A}_{n,m}(\textbf{t}) - \hat{A}^{(O)}_{n,m}(\textbf{t}) \right),
 	\end{equation}
-	where $\hat{A}_{n\Sigma} = \sum_{k=1}^K w^{(O_k)}(\textbf{t}) \hat{A}_{n}^{(O_k)}(\textbf{t}^{(O_k)})$. We define the set of hypotheses :
+	where $\hat{A}_{n,m}^{(O)}(\textbf{t}) = \sum_{k=1}^K \textbf{w}^{(O_k)}(\textbf{t}) \hat{A}_{n,m}^{(O_k)}(\textbf{t}^{(O_k)})$. We define the set of hypotheses :
 	\begin{equation*}
-		\mathcal{H}_0 : O_1, \dots, O_K \textrm{ are mutually independent}, \quad \quad \mathcal{H}_1 : \exists j \neq k \, O_j, O_k \textrm{ are mutually dependent}.
+		\mathcal{H}_0 : \textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)} \textrm{ are mutually independent}, \quad \quad \mathcal{H}_1 : \exists j \neq k \, \textbf{X}^{(O_j)}, \textbf{X}^{(O_k)} \textrm{ are mutually dependent}.
 	\end{equation*}
 	Theorem below states the asymptotic behaviour of our statistic test $\mathcal{E}_{nK}$.
 	\begin{theorem}
 		\label{thm:weak_conv}
-		Under $\mathcal{H}_0$, the empirical process $\mathcal{E}_{nK}$ converges weakly in $\ell^{\infty}(\Delta_{d-1})$ to a tight Gaussian process having representation
+		Let $(\textbf{Z}_t)_{t \in \mathbb{Z}}$ be a stationary multivariate time series with univariate continuous margins. Under Conditions \ref{ass:domain}, \ref{ass:regularity}, \ref{ass:smooth} and $\sqrt{k}(C_m - C) \rightsquigarrow \Gamma$, the empirical process $\mathcal{E}_{nK}$ converges weakly in $\ell^{\infty}(\Delta_{d-1})$ to a tight Gaussian process having representation
 		\begin{align*}
-			\mathcal{E}_K(\textbf{t}) &= -\left(1+A(\textbf{t})\right)^2 \int_{[0,1]} N_C(u^{t_1}, \dots, u^{t_d})du \\ &+ \sum_{k=1}^K w^{(O_k)}(\textbf{t})\left(1+A^{(O_k)}(\textbf{t}^{(O_k)})\right)^2 \int_{[0,1]} N_C(\textbf{1},u^{t_{i,1}}, \dots, u^{t_{i,d_k}}, \textbf{1})du,
+			\mathcal{E}_K(\textbf{t}) &= -\left(1+A(\textbf{t})\right)^2 \int_{[0,1]} (N_C + \Gamma)(u^{t_1}, \dots, u^{t_d})du \\ &+ \sum_{k=1}^K w^{(O_k)}(\textbf{t})\left(1+A^{(O_k)}(\textbf{t}^{(O_k)})\right)^2 \int_{[0,1]} (N_C + \Gamma)(\textbf{1},u^{t_{i,1}}, \dots, u^{t_{i,d_k}}, \textbf{1})du,
 		\end{align*}
 		where $N_C$ is a continuous tight Gaussian process with representation 
 		\begin{equation*}
@@ -711,7 +758,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	
 	To prove the weak convergence of our process given in Theorem \ref{thm:weak_conv}, we make of use of empirical processes as stated in \cite{bestbook}.
 	
-	\begin{proof}
+	\begin{proof}[Proof of Theorem \ref{thm:weak_conv}]
 		The proof is straightforward, notice that (see Figure \ref{fig:diagram})
 		\begin{equation*}
 			\mathcal{E}_{nK} = \psi \circ \phi \left(\sqrt{n}(\hat{\theta}_n - \theta) \right),
@@ -730,9 +777,17 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
  & & x & \mapsto & x(\textbf{0}, t_{i_{k,1}},\dots, t_{i_{k,d_k}}, \textbf{0}). \\
 			\end{array}
 		\end{equation*}
-		Thus $\phi_k$ is a linear and bounded function hence continuous, it follows that $\phi$ is continuous  since each coordinate functions are continuous. Using that (see \cite{MARCON20171})
+		Thus $\phi_k$ is a linear and bounded function hence continuous, it follows that $\phi$ is continuous  since each coordinate functions are continuous. Noticing that 
+		\begin{equation*}
+			(C_m - C)(\textbf{1},u,\textbf{1}) = 0, \quad \forall n \in \mathbb{N}.
+		\end{equation*}
+		Whe thus have
+		\begin{equation*}
+			\sqrt{k}(C_m-C)(\textbf{1},u,\textbf{1}) \underset{n \rightarrow \infty}{\longrightarrow} 0,
+		\end{equation*}
+		hence $\Gamma(\textbf{1},u,\textbf{1}) = 0$. Now, using Corollary 3.6 of \cite{bucher2014extreme} and the same tools use in the proof of Theorem 2.4 in \cite{MARCON20171}, one can show that
 		\begin{equation*}		
-		 \sqrt{n}(\hat{A}_n(\textbf{t}) - A(\textbf{t})) \rightsquigarrow -\left(1+A(\textbf{t})\right)^2 \int_{[0,1]}N_C(u^{t_1}, \dots, u^{t_d}) du,
+		 \sqrt{k}(\hat{A}_{n,m}(\textbf{t}) - A(\textbf{t})) \rightsquigarrow -\left(1+A(\textbf{t})\right)^2 \int_{[0,1]}(N_C + \Gamma)(u^{t_1}, \dots, u^{t_d}) du,
 		\end{equation*}
 		and applying the continuous mapping theorem for the weak convergence in $\ell^{\infty}(\Delta_{d-1})$ (Theorem 1.3.6 of \cite{bestbook}) leads the result.
 		\begin{figure}

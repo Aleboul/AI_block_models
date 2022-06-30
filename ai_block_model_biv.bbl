@@ -29,6 +29,12 @@ E.~Bernard, P.~Naveau, M.~Vrac, and O.~Mestre.
   france.
 \newblock {\em Journal of climate}, 26(20):7929--7937, 2013.
 
+\bibitem{bucher2014extreme}
+A.~B{\"u}cher and J.~Segers.
+\newblock Extreme value copula estimation based on block maxima of a
+  multivariate stationary time series.
+\newblock {\em Extremes}, 17(3):495--528, 2014.
+
 \bibitem{bunea2020model}
 F.~Bunea, C.~Giraud, X.~Luo, M.~Royer, and N.~Verzelen.
 \newblock Model assisted variable clustering: minimax-optimal recovery and
@@ -144,6 +150,11 @@ M.~Hofert, R.~Huser, and A.~Prasad.
 \newblock Hierarchical archimax copulas.
 \newblock {\em Journal of Multivariate Analysis}, 167:195--211, 2018.
 
+\bibitem{hsing1989extreme}
+T.~Hsing.
+\newblock Extreme value theory for multivariate stationary sequences.
+\newblock {\em Journal of Multivariate Analysis}, 29(2):274--291, 1989.
+
 \bibitem{huang1992statistics}
 X.~Huang.
 \newblock {\em Statistics of bivariate extreme values}.
@@ -176,6 +187,12 @@ P.~D. Le, A.~C. Davison, S.~Engelke, M.~Leonard, and S.~Westra.
 \newblock Dependence properties of spatial rainfall extremes and areal
   reduction factors.
 \newblock {\em Journal of Hydrology}, 565:711--719, 2018.
+
+\bibitem{leadbetter1974extreme}
+M.~R. Leadbetter.
+\newblock On extreme values in stationary sequences.
+\newblock {\em Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und verwandte
+  Gebiete}, 28(4):289--303, 1974.
 
 \bibitem{lindskog2004multivariate}
 F.~Lindskog.
