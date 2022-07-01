@@ -21,6 +21,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\SECO}{\mathrm{SECO}}
 \newcommand{\MECO}{\mathrm{MECO}}
+\newcommand{\Cov}{\mathrm{Cov}}
 \newtheorem{axiom}{Axiom}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
@@ -64,15 +65,15 @@
 
 \begin{document}
 	\section{Introduction}
-	Multivariate extremes arise when one or more of rare extremes events occur simultaneously. These events are of prime interest to assess natural hazard stemming from heavy rainfall, wind storms and earthquakes since they are driven by joint extremes of a number meteorologial variables. It is well known from the classical theory that multivariate distributions can be decomposed into two distinct parts : the analysis of marginal distributions and the analysis of the dependence structure described by the copula function. Results from the extreme-value theory show that the possible dependence structure of extremes have to satisfy certain constraints. Indeed, the dependence structure may be described in various equivalent ways (\cite{beirlant2004statistics,de2006extreme, resnick2008extreme}) : by the exponent measure $\Lambda$ (\cite{balkema1977max}), by the Pickands dependence function $A$ (\cite{pickands1981multivariate}), by the stable tail dependence function $L$ (\cite{huang1992statistics}), by the madogram (\cite{naveau2009modelling}), by the extreme value copula $C$ (\cite{gudendorf2010}).
+	Multivariate extremes arise when one or more of rare extremes events occur simultaneously. These events are of prime interest to assess natural hazard stemming from heavy rainfall, wind storms and earthquakes since they are driven by joint extremes of a number of meteorologial variables. It is well known from Skar's theory \cite{Skla59} that multivariate distributions can be decomposed into two distinct parts : the analysis of marginal distributions and the analysis of the dependence structure described by the copula function. Results from multivariate extreme-value theory show that the possible dependence structure of extremes have to satisfy certain constraints. Indeed, the dependence structure may be described in various equivalent ways (\cite{beirlant2004statistics,de2006extreme, resnick2008extreme}) : by the exponent measure $\Lambda$ (\cite{balkema1977max}), by the Pickands dependence function $A$ (\cite{pickands1981multivariate}), by the stable tail dependence function $L$ (\cite{huang1992statistics}), by the madogram (\cite{naveau2009modelling}), by the extreme value copula $C$ (\cite{gudendorf2010}).
 	
-	The dependence structure between extreme observations can be complex and characterized by different notions from the ones arises in the classical theory as given afore. For this reason, recent works bring various notions to the framework of extreme such as sparsity (\cite{goix2015learning,meyer2021sparse, simpson2020determining}), conditional independence and graphical models (\cite{engelke2020graphical, gissibl2018max,segers2020one}), dimensionality reduction (\cite{chautru2015dimension, drees2021principal}) and unsupervised learning (\cite{cooley2019decompositions, janssen2020k}). In this work, we are concerned about clustering as a tool for learning the dependence structure of multivariate extreme and bridge important ideas from modern statistics and machine learning to the framework of extreme-value theory.
+	The dependence structure between extreme observations can be complex and characterized by different notions from the ones arises in the classical theory as given afore. For this reason, recent works bring various notions to the framework of extreme such as sparsity (\cite{goix2015learning,meyer2021sparse, simpson2020determining}), conditional independence and graphical models (\cite{engelke2020graphical, gissibl2018max,segers2020one}), dimensionality reduction (\cite{chautru2015dimension, drees2021principal}) and unsupervised learning (\cite{cooley2019decompositions, janssen2020k}). Works aforementioned gives tools to better understand dependencies in a extreme value random vector. Following the same purpose, in this work, we see clustering as a tool for learning the dependence structure of multivariate extreme and bridge important ideas from modern statistics and machine learning to the framework of extreme-value theory.
 	
 	Loosely speaking, we are able to perform clustering in two distinguish cases : by partitionning the set $\{1,\dots, n\}$ of row indices or by partitioning with respect to column indices the set $\{1,\dots,d\}$. The first problem will be designated as the data clustering problem whereas the second corresponds to the variable clustering problem discussed here so far. In data clustering, clusters are clouds of observations and corresponds to respective realizations of one of the mixture distribution, which is a distribution on the whole $\mathbb{R}^d$. In this framework with i.i.d. replications, \cite{pollard1981strong} shows the strong consistency of $k$-means clustering where the result was replicated in the context of extreme by \cite{janssen2020k} for spherical $k$-means.
 	
-	The problem of variable clustering, see e.g. \cite{bunea2020model, eisenach2020high}, is that of grouping similar components of a $d$-dimensional random vector $\textbf{X} = (X_1,\dots,X_d)$. Those groups are referred as clusters and unknown to the statistician who wants to recover them from $\textbf{X}_1, \dots, \textbf{X}_n$, $n$ independent copies of $\textbf{X}$. In this problem, the effort is to define cluster models relate to subsets of components $X_j$, of $\textbf{X} \in \mathbb{R}^d$. In this framework, we do not longer want to cluster independent entities but, a contrario, to cluster those who are strongly dependent. Variable clustering is of prime interest in weather extremes, with examples stemming from regionalisation, for instance \cite{bador2015spatial,bernard2013clustering, saunders2021regionalisation}, where one observes spatial phenomena at finitely many sites. An interesting special case is to cluster those sites according to their extremal dependencies. They include applications of $K$-means or hierarchical clustering with a dissimilarity designed for extremes. The statistical properties of those procedures have received a very limited amount of investigation. It is not currently known what probabilistic models on $\textbf{X}$ can be estimated by these techniques. We will consider here model-based clustering where population-level clusters are clearly defined, offering interpretability and a benchmark to assess the performance of a peculiar clustering algorithm.
+	The problem of variable clustering, see e.g. \cite{bunea2020model, eisenach2020high}, is that of grouping similar components of a $d$-dimensional random vector $\textbf{X} = (X_1,\dots,X_d)$. Those groups are referred as clusters and unknown to the statistician and the aim is to recover them from $\textbf{X}_1, \dots, \textbf{X}_n$, $n$ independent copies of $\textbf{X}$. In this problem, the effort is to define cluster models relate to subsets of components $X_j$, of $\textbf{X} \in \mathbb{R}^d$. In this framework, we do not longer want to cluster independent entities but, a contrario, to cluster those who are strongly dependent. Variable clustering is of prime interest in weather extremes, with examples stemming from regionalisation, for instance \cite{bador2015spatial,bernard2013clustering, saunders2021regionalisation}, where one observes spatial phenomena at finitely many sites. An interesting special case is to cluster those sites according to their extremal dependencies. They include applications of $K$-means or hierarchical clustering with a dissimilarity measure designed for extremes. The statistical properties of those procedures have received a very limited amount of investigation. It is not currently known what probabilistic models on $\textbf{X}$ can be estimated by these techniques. We will consider here model-based clustering where population-level clusters are clearly defined, offering interpretability and a benchmark to assess the performance of a peculiar clustering algorithm.
 	
-	In this work, we propose the AI-block model as a model for variable clustering in extreme-value theory and show that the clusters given by this model are uniquely defined. We then motivate and develop an algorithm tailored to the model with the help of the $\SECO$ metric. We thus analyze its performance in terms of exact cluster recovery, for minimally separated clusters, under appropriately defined cluster separation metric.
+	In this work, we propose the asymptotic independence block (AI-block) model as a model for variable clustering in extreme-value theory and show that the clusters given by this model are uniquely defined. We then motivate and develop an algorithm tailored to the model. We thus analyze its performance in terms of exact cluster recovery, for minimally separated clusters, under appropriately defined cluster separation metric.
 
 	We use the following notations throughout the paper. All bold letters $\textbf{x}$ corresponds to vector in $\mathbb{R}^d$. By considering $B \subseteq \{1,\dots,d\}$, we denote the $|B|$-subvector of $\textbf{x}$ by $\textbf{x}^{(B)} = (x_j)_{j \in B}$. Similarly, let $G$ a cumulative distributive function on $[0,1]^d$, $G^{(B)}$ is defined as
 	\begin{equation*}
@@ -80,20 +81,20 @@
 	\end{equation*}
 	where $(\textbf{1},\textbf{x}^{(B)}, \textbf{1})$ has $j$th component equals to $x_j \mathds{1}_{\{j \in B\}} + \mathds{1}_{\{ j \notin B\}}$. In a similar way, we note $(\textbf{0}, x^{(B)}, \textbf{0})$ the vector in $\mathbb{R}^d$ which equals $x_j$ if $j \in B$ and $ 0 $ otherwise. We will denote the $d$ consecutive integer set starting from 1 as $\llbracket d \rrbracket$. Weak convergence of processes are denoted by '$\rightsquigarrow$'. The notation $\delta_x$ corresponds to the dirac measure at $x$. We define by $\textbf{X} \in \mathbb{R}^d$ a random vector with law $G$. Let $O = \{O_k\}_{k= 1 ,\dots, K}$ be a partition of $\{1,\dots,d\}$ into $K$ groups and let $s : \{1,\dots,d\} \rightarrow \{1,\dots,K\}$ be an index assignement function defined by $O_k = \{a \in \{1,\dots,d\} : s(a) = k\} = \{i_{k,1}, \dots, i_{k,d_k}\}$ with $d_1+\dots+d_K = d$.
 	
-	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we describe AI-block models designed for variable clustering. Central to our work is a new metric for variable clustering in AI-block models. Our metric is based on the Sum of Extremal COefficient ($\SECO$) between several groups of variables, a measure that attempts to capture how groups of variables are independent relative to their extremes. We discuss this in detail in Section \ref{sec:SECO}. In Section \ref{sec:estimation}, we develop a new clustering algorithm based on the extremal correlation coefficient and a threshold. It has moderate computational complexity, polynomial in $d$. We prove that this algorithm can recover correctly the target partition, with high probability if the threshold is calibrated accordingly to a certain scale. Furthermore, we use the $\SECO$ metric as a tool to calibrate the threshold in our algorithm in Section \ref{sec:num}. All proofs are deferred to the Appendix.
+	In the present paper, we present in Section \ref{sec:variable_clust} some background notions in extreme-value theory necessary for our analysis. All these notions introduced, we describe AI-block models designed for variable clustering. Central to our work is a new metric for variable clustering in AI-block models. Our metric is based on the Sum of Extremal COefficient ($\SECO$) between several groups of variables, a measure that attempts to capture how groups of variables are independent relative to their extremes. We discuss this in detail in Section \ref{sec:SECO}. In Section \ref{sec:estimation}, we develop a new clustering algorithm based on the extremal correlation coefficient. It has moderate computational complexity, polynomial in the dimension $d$. We prove that this algorithm can recover correctly the target partition with high probability. Furthermore, we use the $\SECO$ metric as a tool to calibrate the threshold in our algorithm in Section \ref{sec:num}. All proofs are deferred to the Appendix.
 	
 	\section{A model for variable clustering}
 	\label{sec:variable_clust}
 	
 	\subsection{Extreme value theory} 
 	
-	Consider $\textbf{Z}= (Z_1,\dots, Z_d)$ a $d$-dimensional random vector with law $F$ and $\textbf{Z}_{i} = (Z_{i,1},\dots, Z_{i,d})$, $i = 1,\dots,n$ be independent copies of $\textbf{Z}$. By denoting the component-wise maxima by $\textbf{M}_n = (\max_{i=1,\dots,n} Z_{i,1}, \dots, \max_{i=1,\dots,n} Z_{i,d})$. The vector $\textbf{Z}$ is said to be in max-domain of attraction of the random vector $\textbf{X} = (X_1, \dots, X_d)$, denoted as $F \in D(G)$, if for any $\textbf{x} = (x_1,\dots,x_d)$,
+	Consider $\textbf{Z}= (Z_1,\dots, Z_d)$ a $d$-dimensional random vector with law $F$ and $\textbf{Z}_{i} = (Z_{i,1},\dots, Z_{i,d})$, $i = 1,\dots,n$ be independent copies of $\textbf{Z}$. By denoting the component-wise maxima by $\textbf{M}_n = (\max_{i=1,\dots,n} Z_{i,1}, \dots, \max_{i=1,\dots,n} Z_{i,d})$. The vector $\textbf{Z}$ is said to be in max-domain of attraction of the random vector $\textbf{X} = (X_1, \dots, X_d)$ with law $G$, denoted as $F \in D(G)$, if for any $\textbf{x} = (x_1,\dots,x_d)$,
 	
 	\begin{equation}
 		\label{eq:domain_attraction}
 		\underset{n \rightarrow \infty}{\lim} \left\{ F(\textbf{a}_n \textbf{x} + \textbf{b}_n) \right\}^n = G(\textbf{x}),
 	\end{equation}
-	where $\textbf{a}_n > \textbf{0}$ (which means that $a_{i,n} > 0$ for every $i$ and $n$) and $\textbf{b}_n \in \mathbb{R}^d$. In this case, $\textbf{X}$ is max-stable with Generalized Extreme Value (GEV) margins and we may write
+	where $\textbf{a}_n > \textbf{0}$ ($a_{i,n} > 0$ for every $i$ and $n$) and $\textbf{b}_n \in \mathbb{R}^d$. In this case, $\textbf{X}$ is a max-stable vector with Generalized Extreme Value (GEV) margins and we may write
 	\begin{equation*}
 		\mathbb{P}\left\{ \textbf{X} \leq \textbf{x}\right\} = \exp \left\{ -\Lambda(E \setminus [0,\textbf{x}]) \right\},
 	\end{equation*}
@@ -112,7 +113,7 @@
 	\begin{equation*}
 		C(\textbf{u}) = \exp\left\{-L\left(-\ln(u_1), \dots, -\ln(u_d)\right)\right\},
 	\end{equation*}
-	with $L$ is known as the stable tail dependence function (see \cite{gudendorf2010} for an overview of extreme value copulae). As it is a homogeneous function of order $1$, i.e. $L(a\textbf{z}) = a L(\textbf{z})$ for all $a > 0$, we have, for all $\textbf{z} \in [0,\infty)^d$,
+	where $L$ is known as the stable tail dependence function (see \cite{gudendorf2010} for an overview of extreme value copulae). As it is a homogeneous function of order $1$, i.e. $L(a\textbf{z}) = a L(\textbf{z})$ for all $a > 0$, we have, for all $\textbf{z} \in [0,\infty)^d$,
 	\begin{equation*}
 		L(\textbf{z}) = (z_1 + \dots + z_d)A(\textbf{t}),
 	\end{equation*}
@@ -124,7 +125,7 @@
 	
 	\subsection{AI-block models} 
 	
-	Motivated by a rich set of applications, we consider variable clustering as the initial dimension reduction step applied to the observed vector $\textbf{X} = (X_1, \dots, X_d)$. These models are build on the assumption that the observed variables $\textbf{X} = (X_1,\dots, X_d)$ can be partionned into $K$ unknown clusters $O = \{O_1, \dots, O_K\}$ such that variables in the same cluster are as dependent as possible and the clusters are mutually independent. This structure of dependendence has been observed to hold, empirically, recent studies have shown that in many applications such as spatial precipitation (see \cite{lalancette2021rank, le2018dependence}) or water discharges in river network (\cite{fomichov2022spherical}). We define here a population-level cluster as a group of variables that shares the same extremal dependence structure within the cluster and is independent from the other clusters.
+	Motivated by a rich field of applications, we consider variable clustering as the initial dimension reduction step applied to the observed vector $\textbf{X} = (X_1, \dots, X_d)$. These models are build on the assumption that the observed vectors can be partionned into $K$ unknown clusters $O = \{O_1, \dots, O_K\}$ such that variables in the same cluster are as dependent as possible and the clusters are mutually independent. This structure of dependence has been observed to hold empirically in many applications such as spatial precipitation (see \cite{lalancette2021rank, le2018dependence}) or water discharges in river network (\cite{fomichov2022spherical}). We define here a population-level cluster as a group of variables that shares the same extremal dependence structure within the cluster and is independent from the other clusters.
 	 
 	To keep the presentation focus, let us consider $\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)}$ be extreme value random vectors with extreme value copulae $C^{(O_1)}, \dots, C^{(O_K)}$ respectively. We suppose that $\textbf{X}^{(O_k)}$ and $\textbf{X}^{(O_j)}$ are mutually asymptotically independent if $k \neq j$, i.e., the corresponding components of the limit vector in \eqref{eq:domain_attraction} are mutually independent. Let us define the following function :
 	\begin{align*}
@@ -132,49 +133,48 @@
 C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
     & \textbf{u} & \longmapsto & \Pi_{k=1}^K C^{(O_k)}(u_{i_{k,1}}, \dots, u_{i_{k,d_k}}). \end{array}
 	\end{align*}
-	We want to show that $C_\Pi$ is an extreme value copula associated to $\textbf{X} = (\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)})$ in order that all objects we use below are well-defined, in particular the existence of a \emph{stable tail dependence function} associated to $C_\Pi$.
+	We aim to show that $C_\Pi$ is an extreme value copula associated to $\textbf{X} = (\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)})$ in order that all objects we use below are well-defined, in particular the existence of a \emph{stable tail dependence function} associated to $C_\Pi$.
 	\begin{lemma}
 		\label{lem:Cevt}
 		$C_\Pi$ is an extreme value copula associated to the random vector $\textbf{X}$.
 	\end{lemma}
-	
-	A direct consequence of this lemma is that if $\textbf{X}$ admits a copula $C_\Pi$, it is an extreme-value one. In particular, there exists a stable tail dependence function $L$ say, and one can show that $L$ can be expressed in a convenient way such as :
+	The proof of this lemma is given in Appendix \ref{sec:proof}. A direct consequence of this lemma is that if $\textbf{X}$ admits a copula $C_\Pi$, it is an extreme-value one. In particular, there exists a stable tail dependence function $L$ say, and one can show that $L$ can be expressed in a convenient way such as :
 	\begin{equation}
 		\label{eq:mutual_indep_stdf}
 		L\left(z_1, \dots, z_d\right) = \sum_{k=1}^K L^{(O_k)}\left( \textbf{z}^{(O_k)} \right), \quad \textbf{z} \in [0,\infty)^d,
 	\end{equation}
-	where $L^{(O_1)}, \dots, L^{(O_K)}$ are the stable tail dependence function associated to the extreme value copulae $C^{(O_1)}, \dots, C^{(O_K)}$ respectively. Furthermore, this model is a particular form of the nested extreme value copula and is the object of the remark below.
+	where $L^{(O_1)}, \dots, L^{(O_K)}$ are the stable tail dependence function associated to the extreme value copulae $C^{(O_1)}, \dots, C^{(O_K)}$ respectively. Furthermore, this model is a particular form (see, e.g., \cite{hofert2018hierarchical}) of the nested extreme value copula and is the object of the remark below.
 	
 	\begin{remark}
 		Equation \eqref{eq:mutual_indep_stdf} can restated as 
 		\begin{equation*}
-			L(\textbf{z}) = L^{(0)} \left(L^{(O_1)}\left(z^{(O_1)}\right), \dots, L^{(O_K)}\left(z^{(O_K)}\right) \right),
+			L(\textbf{z}) = L_{\Pi} \left(L^{(O_1)}\left(z^{(O_1)}\right), \dots, L^{(O_K)}\left(z^{(O_K)}\right) \right),
 		\end{equation*}
-		where $L^{(0)}(z_1, \dots, z_K) = \sum_{k=1}^K z_k$ is a stable tail dependence function corresponding to the asymptotic independence. Since $C$ is an extreme value copula by Lemma \ref{lem:Cevt}, we obtain that $C$ is also a nested extreme value copula as formulated in \cite{hofert2018hierarchical}.
+		where $L_{\Pi}(z_1, \dots, z_K) = \sum_{k=1}^K z_k$ is a stable tail dependence function corresponding to the asymptotic independence. Since $C$ is an extreme value copula by Lemma \ref{lem:Cevt}, we obtain that $C$ is also a nested extreme value copula as formulated in \cite{hofert2018hierarchical}.
 	\end{remark}
 	The following remark states the form of the stable tail dependence function in terms of regular variation. This corresponding statement might be found in the litterature, see Lemma 7.2 of \cite{resnick2007heavy} or Theorem 1.28 of \cite{lindskog2004multivariate} for example.	
 	\begin{remark}
-		Let $K = 2$, consider $\textbf{X}^{(O_1)} \in \mathbb{R}^{d_1}$ and $\textbf{X}^{(O_2)} \in \mathbb{R}^{d_2}$ defined in the same probability space, independent, and satisfy the regular variation assumption
+		Consider $\textbf{X}^{(O_k)} \in \mathbb{R}^{d_k}$ for $k \in \{1,\dots,K\}$ be vectors defined in the same probability space, independent, and satisfy the regular variation assumption that is
 		\begin{equation*}
-			n \mathbb{P}\left\{ a_n^{-1} \textbf{X}^{(O_1)} \in \cdot \right\} \overunderset{v}{n \rightarrow \infty}{\longrightarrow} \nu_1(\cdot), \quad n \mathbb{P}\left\{ a_n^{-1} \textbf{X}^{(O_2)} \in \cdot \right\} \overunderset{v}{n \rightarrow \infty}{\longrightarrow} \nu_2(\cdot),
+			n \mathbb{P}\left\{ a_n^{-1} \textbf{X}^{(O_k)} \in \cdot \right\} \overunderset{v}{n \rightarrow \infty}{\longrightarrow} \nu_k(\cdot), \quad k \in \{1,\dots,K\}
 		\end{equation*}
-		with the same sequence $0< a_n \rightarrow \infty$. then the distribution tail of $\textbf{X} = (\textbf{X}^{(O_1)}, \textbf{X}^{(O_2)})$ is also regularly varying with 
+		with the same sequence $0< a_n \rightarrow \infty$. then the distribution tail of $\textbf{X} = (\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)})$ is also regularly varying with 
 		\begin{equation*}
 			n \mathbb{P}\left\{ a_n^{-1} \textbf{X} \in \cdot \right\} \overunderset{v}{n \rightarrow \infty}{\longrightarrow} \nu(\cdot),
 		\end{equation*}
 		where
 		\begin{equation*}
-			\nu(d\textbf{x}^{(O_1)}, d\textbf{x}^{(O_2)}) = \nu_1 (d\textbf{x}^{(O_1)}) \delta_0(d\textbf{x}^{(O_2)}) + \delta_0(d\textbf{x}^{(O_1)}) \nu_2(d\textbf{x}^{(O_2)}).
+			\nu(d\textbf{x}^{(O_1)}, \dots, d\textbf{x}^{(O_K)}) = \sum_{k=1}^K \nu_k \left(d \textbf{x}^{(O_k)} \right ) \Pi_{j \neq k} \delta_0\left(d \textbf{x}^{(O_j)}\right)
 		\end{equation*}
 	\end{remark}
 	
 	With all notations and definitions previously introduced, we now are able to state the definition of the considered model here.
 	
 	\begin{definition}[Asymptotic Independence-block model]
-		 The random vector $\textbf{X} = (\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)})$ follows an AI-block model if $\textbf{X}^{(O_k)} = (X_{i_{k,1}}, \dots, X_{i_{k,d_k}})$ are extreme value random vectors for $k \in \{1,\dots,K\}$ and are mutually independent if $k \neq j$.
+		 The random vector $\textbf{X} = (\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)})$ follows an AI-block model if for $k \in \{1,\dots,K\}$, $\textbf{X}^{(O_k)} = (X_{i_{k,1}}, \dots, X_{i_{k,d_k}})$ are extreme value random vectors and $\textbf{X}^{(O_k)}$ and $\textbf{X}^{(O_j)}$ are mutually independent if $k \neq j$.
 	\end{definition}
 	
-	Notice that, when $K=1$, the definition of the AI-block model thus reduces to $\textbf{X} = (X_1,\dots,X_d)$ is an extreme value random vector, which is trivially obtained by the definition. 
+	Notice that, when $K=1$, the definition of the AI-block model thus reduces to $\textbf{X} = (X_1,\dots,X_d)$ is an extreme value random vector.
 	
 	Let $\mathcal{L}(\textbf{X}) = \{O : \textbf{X} \, \textrm{is AI-block model}\}$ which is nonempty and finite so it does have maximal elements, we note $\textbf{X} \sim O$ if $\textbf{X}$ follows an AI-block model. We introduce the following partial order on sets, let $O = \{O_k\}_k$, $S = \{S_{k'}\}_{k'}$ be two partitions of $\{1,\dots,d\}$. We say that $S$ is a sub-partition of $O$ if for each $k'$ there exists $k$ such that $S_{k'} \subseteq O_k$. We define the partial order $\leq$ between two partitions $O$, $S$ of $\{1,\dots,d\}$ by $O \leq S$ if $S$ is a sub-partition of $O$. For any partition $O = \{O_k\}_{1 \leq k \leq K}$, we write $j \overset{O}{\sim} k$ if there exist $k \in \{1,\dots,K\}$ such that $j,k \in O_k$.
 	
@@ -193,20 +193,20 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\end{enumerate}
 	\end{theorem}
 	
-	We refer to Appendix for a proof of this Theorem. It shows that the maximum partition for which $\textbf{X}$ is an AI-block model always exists and its structure is intrinsic of the definition of $\textbf{X}$. The maximal partition of $\bar{O}(\textbf{X})$ matches our intuition regarding what would constitute a reasonable clustering target for these models, \emph{i.e.} the finest partition $\bar{O}(\textbf{X})$ where $\textbf{X}$ is an AI-block model as stated in the introduction of \cite{NIPS2017_37d097ca}. With a slight abuse of notation, we will write $\bar{O}(\textbf{X})$ as $\bar{O}$. 
+	We refer to Appendix \ref{sec:proof} for a proof of this result. It shows that the maximum partition for which $\textbf{X}$ is an AI-block model always exists and its structure is intrinsic of the definition of $\textbf{X}$. The maximal partition of $\bar{O}(\textbf{X})$ matches our intuition regarding what would constitute a reasonable clustering target for these models, \emph{i.e.} the finest partition $\bar{O}(\textbf{X})$ where $\textbf{X}$ is an AI-block model as stated in the introduction of \cite{NIPS2017_37d097ca}. With a slight abuse of notation, we will write $\bar{O}(\textbf{X})$ as $\bar{O}$. 
 	
 	In an AI-block model, we may restrict Equation \eqref{eq:mutual_indep_stdf} to the simplex and thus, expressing the stable tail dependence function in terms of the Pickands dependence function. Furthermore, its expression is obtained as a convex combination of the Pickands dependence function $A^{(O_1)}, \dots, A^{(O_K)}$ as follows 
-	\begin{align*}
-		A(t_1, \dots, t_d) &= \frac{1}{z_1+\dots+z_d} \left[ \sum_{k=1}^K (z_{i_{k,1}} + \dots + z_{i_{k,d_k}}) A^{(O_k)}(\textbf{t}^{(O_k)}) \right] \\
-		&= \sum_{k=1}^K w^{(O_k)}(\textbf{t}) A^{(O_k)}(\textbf{t}^{(O_k)}) =: A_O
-	\end{align*}
-	with $t_j = z_j / (z_1+\dots+z_d)$ for $j \in {2,\dots, d}$ and $t_1 = 1-t_2 - \dots - t_d$, $w^{(O_k)}(\textbf{t})  = z_{i_{k,1}} + \dots + z_{i_{k,d_k}} / (z_1 + \dots + z_{d})$ for $k \in \{2, \dots, K\}$ and $w_1 = 1-w^{(O_2)}(\textbf{t})-\dots -w^{(O_K)}(\textbf{t})$ and $t_{i_{k,\ell}} = z_{i_{k,\ell}} / (z_{i_{k,1}} + \dots + z_{i_{k,d_k}})$ for $k \in \{1, \dots, K\}$ and $\ell \in \{1, \dots, d_k\}$. The function $A$ is still a Pickands dependence function as a convex combination of Pickands dependence function (see p. 123 of \cite{falk2010laws}).
+	\begin{align}
+		A(t_1, \dots, t_d) &= \frac{1}{z_1+\dots+z_d} \left[ \sum_{k=1}^K (z_{i_{k,1}} + \dots + z_{i_{k,d_k}}) A^{(O_k)}(\textbf{t}^{(O_k)}) \right] \nonumber \\ 
+		&= \sum_{k=1}^K w^{(O_k)}(\textbf{t}) A^{(O_k)}(\textbf{t}^{(O_k)}) =: A_O \label{eq:conv_pick}
+	\end{align}
+	with $t_j = z_j / (z_1+\dots+z_d)$ for $j \in {2,\dots, d}$ and $t_1 = 1-t_2 - \dots - t_d$, $w^{(O_k)}(\textbf{t})  = z_{i_{k,1}} + \dots + z_{i_{k,d_k}} / (z_1 + \dots + z_{d})$ for $k \in \{2, \dots, K\}$ and $w^{(O_1)}(\textbf{t}) = 1-w^{(O_2)}(\textbf{t})-\dots -w^{(O_K)}(\textbf{t})$, $\textbf{t}^{(O_k)} = (t_{i_{k,1}},\dots, t_{i_{k,d_k}})$ where $t_{i_{k,\ell}} = z_{i_{k,\ell}} / (z_{i_{k,1}} + \dots + z_{i_{k,d_k}})$ for $k \in \{1, \dots, K\}$ and $\ell \in \{1, \dots, d_k\}$. The function $A$ is still a Pickands dependence function as a convex combination of Pickands dependence function (see page 123 of \cite{falk2010laws}).
 	
 	When considering independence between random variables, we know that $A(\textbf{t}) \leq 1$ for $\textbf{t} \in \Delta_{d-1}$ where inequality stands for asymptotic independence between all random variables. A more general statement can also be formulated considering random vectors, where the former case directly comes down by taking $d_1 = \dots = d_K = 1$.
 	
 	\begin{proposition}
 	\label{prop:ineq}
-		In general case, we have for every $\textbf{t} \in \Delta_{d-1}$, 
+		Let $A_O$ as in \eqref{eq:conv_pick} and $\textbf{X} \in \mathbb{R}^d$, an extreme value random vector with Pickands dependence function $A$, we have for every $\textbf{t} \in \Delta_{d-1}$, 
 		\begin{equation*}
 			\left(A_{O} - A\right) (\textbf{t}) \geq 0,
 		\end{equation*}
@@ -350,11 +350,12 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\begin{Assumption}{C}
 	\label{ass:regularity}
 	There exists a positive integer sequence $\ell_n$ such that the following statement holds:
-	\begin{enumerate}
-	\item $m_n \rightarrow \infty$ and $m_n = o (n)$ ;
+	\begin{enumerate}[label=(\roman*)]
+	\item $m_n \rightarrow \infty$ and $m_n = o (n)$ ; \label{ass:m=o(n)}
 	\item $\ell_n \rightarrow \infty$ and $\ell_n = o(m_n)$;
 	\item $k_n \alpha(\ell_n) = o(1)$ and $(m_n / \ell_n) \alpha(\ell_n) = o(1)$; \label{ass:leadbetter}
-	\item $\sqrt{k_n} \beta(m_n) = o(1)$.
+	\item $\sqrt{k_n} \beta(m_n) = o(1)$;
+	\item $\sum_{n \geq 1} \beta(m_n) < \infty$. \label{ass:series}
 	\end{enumerate}
 	\end{Assumption}
 	
@@ -371,10 +372,9 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\end{equation}
 	where
 	\begin{align*}
-		& \hat{\nu}_{n,m}(\textbf{t}) = \frac{1}{n} \sum_{j=1}^n \left[\bigvee_{j=1}^d \left\{ \hat{G}_{n,m,j} (M_{m,i,j}) \right\}^{1/t_j} - \frac{1}{d} \sum_{j=1}^d \left\{ \hat{G}_{n,m,j}(X_{m,i,j}) \right\}^{1/t_j} \right], \\
-		& c(\textbf{t}) = \frac{1}{d} \sum_{j=1}^d \frac{t_j}{1+t_j}.
+		& \hat{\nu}_{n,m}(\textbf{t}) = \frac{1}{n} \sum_{j=1}^n \left[\bigvee_{j=1}^d \left\{ \hat{U}_{n,m,i,j} \right\}^{1/t_j} - \frac{1}{d} \sum_{j=1}^d \left\{ \hat{U}_{n,m,i,j} \right\}^{1/t_j} \right], \quad c(\textbf{t}) = \frac{1}{d} \sum_{j=1}^d \frac{t_j}{1+t_j},
 	\end{align*}
-	by convention, here $u^{1/0} = 0$ for $u \in (0,1)$. One can use our results presented to design a new test of stochastic vectorial independence. Let $k\in\{1,\dots,K\}$ and let $\hat{A}_{n,m}^{(O_k)}(\textbf{t}^{(O_k)}) = \hat{A}_{n,m}(\textbf{0},\textbf{t}^{(O_k)}, \textbf{0})$ denotes the empirical Pickands dependence function associated to the $k$-th subvector of $X$. Then consider the empirical process
+	where $\hat{U}_{n,m,i,j} = \hat{G}_{n,m,j}(M_{m,i,j})$ corresponds to ranks scaled by $n^{-1}$. By convention, here $u^{1/0} = 0$ for $u \in (0,1)$. One can use our results presented to design a new test of stochastic vectorial independence. Let $k\in\{1,\dots,K\}$ and let $\hat{A}_{n,m}^{(O_k)}(\textbf{t}^{(O_k)}) = \hat{A}_{n,m}(\textbf{0},\textbf{t}^{(O_k)}, \textbf{0})$ denotes the empirical Pickands dependence function associated to the $k$-th subvector of $X$. Then consider the empirical process
 	\begin{equation}
 		\mathcal{E}_{nK} (\textbf{t}) = \sqrt{n}\left(\hat{A}_{n,m}(\textbf{t}) - \hat{A}^{(O)}_{n,m}(\textbf{t}) \right),
 	\end{equation}
@@ -395,16 +395,15 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\end{equation*}
 		and $B_C$ is a continuous tight Gaussian process with covariance function
 		\begin{equation*}
-			cov(B_C(\textbf{u}), B_C(\textbf{v})) = C(\textbf{u} \wedge \textbf{v}) - C(\textbf{u})C(\textbf{v}) \overset{\textbf{X}\sim O}{=} C_{\Pi}(\textbf{u} \wedge \textbf{v}) - C_{\Pi}(\textbf{u})C_{\Pi}(\textbf{v})
+			\Cov(B_C(\textbf{u}), B_C(\textbf{v})) = C(\textbf{u} \wedge \textbf{v}) - C(\textbf{u})C(\textbf{v}) \overset{\mathcal{H}_0}{=} C_{\Pi}(\textbf{u} \wedge \textbf{v}) - C_{\Pi}(\textbf{u})C_{\Pi}(\textbf{v})
 		\end{equation*}
 	\end{theorem}
-	Using previous results stated in the present document, the test is equivalent to test the hypothesis under $\textbf{t} = (d^{-1},\dots,d^{-1})$, that is, whether the extremal coefficient of $\textbf{X}$ is equal to the sum of the other extremal coefficients of $\textbf{X}^{(O_1)}, \dots, \textbf{X}^{(O_K)}$. Furthermore, the asymptotic variance is easily (but technical) computable under this specific point.
 	
-	We can estimate $\bar{O}$ by applying a multiple test procedure by testing if
+	Using Theorem \ref{thm:weak_conv}, we can estimate $\bar{O}$ by applying a multiple test procedure by testing if
 	\begin{equation}
-		\textbf{X}^{(\hat{C})} \indep X_j, \quad j \in \llbracket d \rrbracket \setminus \hat{C},
+		\textbf{X}^{(\hat{O}_l)} \indep X_j, \quad j \in \llbracket d \rrbracket \setminus \hat{C},
 	\end{equation}	 
-	where $\hat{C} \subset \bar{O}_k$ is a candidate cluster for $k \in \{1,\dots,K\}$. This procedure makes perfect sense when $n$ is large, much larger than $d$. But when $d$ is large, the procedure will leads to poor results and induce multiple testing procedure.
+	where $\hat{O}_l$ is a candidate cluster and $j$ belongs to $\hat{O}_l$ if the null hypothesis is rejected. This procedure makes perfect sense when $n$ is large, much larger than $d$. But when $d$ is large, the procedure will leads to poor results and induce multiple testing procedure.
 	
 	In multivariate extreme-value theory, several summary statistics have been developped to measure the strength of dependence between the extreme of different variables. The most popular one is the extremal correlation, which for $a,b \in \llbracket d \rrbracket$ is defined as 
 	\begin{equation}
@@ -437,21 +436,30 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\begin{equation}
 		\chi(a,b) = 2 - \theta(a,b).
 	\end{equation}
-	Therefore, using block maxima approch, we can estimate $\theta(a,b)$ by 
+	Therefore, using block maxima approach, we can estimate $\theta(a,b)$ by 
 	\begin{equation*}
-		\hat{\theta}(a,b) = \frac{\hat{\nu}(a,b) + 1/2}{1/2 - \hat{\nu}(a,b)},
+		\hat{\theta}_{n,m}(a,b) = \frac{\hat{\nu}_{n,m}(a,b) + 1/2}{1/2 - \hat{\nu}_{n,m}(a,b)},
 	\end{equation*}
-	where $\hat{\nu}$ is the so-called madogram (\cite{cooley2006variograms}) defined as
+	where $\hat{\nu}_{n,m}$ is the so-called madogram (\cite{cooley2006variograms}) defined as
 	\begin{equation*}
-		\hat{\nu}(a,b) = \frac{1}{n} \sum_{i=1}^n \left| \frac{\hat{R}_a}{n} - \frac{\hat{R}_b}{n} \right|,
+		\hat{\nu}_{n,m}(a,b) = \frac{1}{n} \sum_{i=1}^n \left| \hat{U}_{n,m,i,a} - \hat{U}_{n,m,i,b}\right|,
 	\end{equation*}
-	and $\hat{R}_a$ (resp. $\hat{R}_b$) corresponds to the empirical ranks of the sample $(X_{i,a})_{i=1}^n$ (resp. $(X_{i,b})_{i=1}^n$). For a given estimator $\hat{\textbf{R}} = (\hat{\textbf{R}}_1, \dots, \hat{\textbf{R}}_d)$, where $\hat{\textbf{R}}_j$ is $n$-dimensional vector composed out of the ranks of the corresponding sample from $X_j$, we associate the estimator
+	We thus estimate $\chi_m(a,b)$, the extremal correlation associated to $M_{m,1,a}$ and $M_{m,1,b}$ by
 	\begin{equation*}
-		\hat{\chi}(a,b) = 2 - \hat{\theta}(a,b), \quad  a,b \in \{1,\dots, d\},
+		\hat{\chi}_{n,m}(a,b) = 2 - \hat{\theta}_{n,m}(a,b), \quad  a,b \in \{1,\dots, d\},
 	\end{equation*}
-	of the extremal correlation. Using these, we define $\hat{\mathcal{X}} = (\hat{\chi}(a,b))_{a,b \in \{1,\dots,d\}}$. We then estimate the partition $\hat{O}$ according to the extremal correlation as explained in Algorithm \ref{alg:rec_pratic}. We emphasize that this algorithm does not require as input the specification of the number of $K$ groups which is automatically estimated by our procedure.
+	of the extremal correlation. Under mixing conditions stated afore, this estimator is strongly consistent. This is stated in the following proposition.
+	\begin{proposition}
+		\label{prop:strong_consistency}
+		Let $(\textbf{Z}_t)_{t \in \mathbb{Z}}$ be a stationary multivariate time series with continuous univariate margins. Take $a,b \in \{1,\dots,d\}$ with $a \neq b$, under conditions \ref{ass:domain}, \ref{ass:regularity} \ref{ass:m=o(n)} and \ref{ass:series}, we have that
+		\begin{equation*}
+		\left| \hat{\chi}_{n,m}(a,b) - \chi(a,b) \right| \overunderset{a.s.}{n \rightarrow \infty}{\longrightarrow} 0.
+	\end{equation*}
+	\end{proposition}
 	
-	The algorithm complexity for computing $\hat{\textbf{R}}$ is of order $O(dn \ln(n))$ (\cite{cormen2022introduction}, Section 2). Given the empirical ranks, computing $\hat{\mathcal{X}}$ and performing the algorithm require $O(d^3 n \ln(n))$ and $O(d^3)$ computations, respectively. So the overall complexity of the estimation procedure is $O(d^3 n \ln (n)))$.
+	Let us define the estimated matrix of extremal correlation coefficient by $\hat{\mathcal{X}} = (\hat{\chi}_{n,m}(a,b))_{a,b \in \{1,\dots,d\}}$. We then estimate the partition $\hat{O}$ according to the extremal correlation as explained in Algorithm \ref{alg:rec_pratic}. We emphasize that this algorithm does not require as input the specification of the number of $K$ groups which is automatically estimated by our procedure.
+	
+	The algorithm complexity for computing the $n$ vectors $\textbf{U}_{n,m,i} = (\hat{U}_{n,m,i,1}, \dots, \hat{U}_{n,m,i,d})$ for $i \in \{1,\dots,n\}$ is of order $O(dn \ln(n))$ (\cite{cormen2022introduction}, Section 2). Given the empirical ranks, computing $\hat{\mathcal{X}}$ and performing the algorithm require $O(d^2\vee d n \ln(n))$ and $O(d^3)$ computations, respectively. So the overall complexity of the estimation procedure is $O(d^2 (d \vee  n \ln (n))))$.
 	\begin{algorithm}
 	
 	\caption{Split procedure with $A$ unknown}
@@ -805,6 +813,58 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\end{figure}
 	\end{proof}
 	
+	Before going into the details of the proof of Proposition \ref{prop:strong_consistency}, let us introduce some notations : applying the probability integral transform to the block maxima yields
+	\begin{equation}
+		\label{eq:prob_int_tra}
+		U_{m,i,j} = G_{m,j}(M_{m,i,j}), \quad \textbf{U}_{m,i} = (U_{m,i,1},\dots, U_{m,i,d}).
+	\end{equation}
+	The random variables $U_{m,i,j}$ are uniformly distributed on $[0,1]$ and the distribution function of the random vector $\textbf{U}_{m,i}$ is the copula $C_m$. The empirical distribution of the (unobservable) sample $\textbf{U}_{m,1},\dots, \textbf{U}_{m,k}$ is
+	\begin{equation*}
+		C_{n,m}^o(\textbf{u}) = \frac{1}{k} \sum_{i=1}^k \mathds{1}_{\{\textbf{U}_{m,i} \leq \textbf{u}\}}.
+	\end{equation*}	
+	The proof of Proposition \ref{prop:strong_consistency} will use twice Lemma \ref{lem:gc} which shows that $||C_{n,m}^o - C||_{\infty}$ converges almost surely to $0$. Its proof is postponed in Section \ref{Sec:aux_res}.
+	\begin{proof}[Proof of Proposition \ref{prop:strong_consistency}]
+		By definition of our estimator of the extreme correlation coefficient, we have :
+		\begin{equation*}
+			\hat{\chi}_{n,m}(a,b) = 2 - \hat{\theta}_{n,m}(a,b),
+		\end{equation*}
+		where $\hat{\theta}_{n,m}$ is a continuous transformation of the madogram estimator. Thus, it is sufficient to prove the strong consistency of the madogram regardless of the dimension, that is
+		\begin{equation*}
+			\hat{\nu}_{n,m} \overunderset{\textrm{a.s.}}{n \rightarrow \infty}{\longrightarrow} \nu,
+		\end{equation*}
+		to obtain the statement. Let us define the following quantity
+		\begin{equation*}
+			\hat{\nu}_{n,m}^o = \frac{1}{k} \sum_{i=1}^k \left[ \bigvee_{j=1}^d U_{m,i,j} - \frac{1}{d} \sum_{j=1}^d U_{m,i,j} \right],
+		\end{equation*}
+		that is the madogram estimated through the sample $\textbf{U}_{m,1},\dots, \textbf{U}_{m,k}$. Following Lemma A.1 of \cite{MARCON20171}, we can show that
+		\begin{equation*}
+			\hat{\nu}_{n,m}^o - \nu = \phi(C_{n,m}^o - C),
+		\end{equation*}
+		with $\phi : \ell^{\infty}([0,1]^d) \rightarrow \ell^\infty(\Delta_{d-1})$, $f \mapsto \phi(f)$ defined by
+		\begin{equation*}
+			\phi(f) = \frac{1}{d} \sum_{j=1}^d \int_{[0,1]} f(1,\dots,1,\underbrace{u}_{\textrm{jth component}},1,\dots,1)du - \int_{[0,1]} f(u,\dots,u)du.
+		\end{equation*}
+		By Lemma \ref{lem:gc}, as $||C_{n,m}^o - C||_{\infty}$ converges almost surely to $0$, we obtain that
+		\begin{equation}
+			\label{proof:sc_1}
+			\left| \hat{\nu}_{n,m}^o - \nu \right| \overunderset{\textrm{a.s.}}{n \rightarrow \infty}{\longrightarrow} 0.
+		\end{equation}
+		Furthermore, using the chain of inequalities and Lemma \ref{lem:gc}
+		\begin{equation*}
+			\left| \hat{\nu}_{n,m} - \hat{\nu}^o_{n,m} \right| \leq 2 \underset{j \in \{1,\dots,d\}}{\sup} \underset{x \in \mathbb{R}}{\sup} \left| \hat{G}_{n,m,j}(x) - G_{m,j}(x) \right| \leq 2 \underset{j \in \{1,\dots,d\}}{\sup} \underset{u \in [0,1]}{\sup} \left| \frac{1}{k} \sum_{i=1}^k \mathds{1}_{ \{ U_{m,i,j} \leq u \}} - u \right|,
+		\end{equation*}
+		we obtain that
+		\begin{equation}
+			\label{proof:sc_2}
+			\left| \hat{\nu}_{n,m} - \hat{\nu}^o_{n,m} \right| \overunderset{\textrm{a.s.}}{n \rightarrow \infty}{\longrightarrow} 0.
+		\end{equation}
+		Now, write
+		\begin{equation*}
+			\left| \hat{\nu}_{n,m} - \nu \right| \leq \left| \hat{\nu}_{n,m} - \nu_{n,m}^o \right| + \left| \hat{\nu}_{n,m}^o - \nu \right|,
+		\end{equation*}
+		and use Equations \eqref{proof:sc_1} and \eqref{proof:sc_2} to obtain the statement.
+	\end{proof}
+	
 	We now present all tools used obtain the exact recovery of our algorithm, that is $\hat{O} = \bar{O}$. The result is obtained by induction on step $l$ while we assume that the algorithm remains consistent at this step. We show that under conditions \eqref{eq:condition_consistent_recovery} and the cluster separation condition, that is $\Theta \in \mathcal{X}(\eta)$, we have that :
 	\begin{equation*}
 		a \overset{\bar{O}}{ \sim } b \quad \Longleftrightarrow \quad \hat{\chi}(a, b) > \alpha.
@@ -886,6 +946,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\end{proof}
 	
 	\section{Proofs of auxiliary results}
+	\label{Sec:aux_res}
 		\subsection{extreme-value copula}
         
         In this first lemma, we prove that the function introduced in Paragraph 2.2 is indeed an extreme-value copula. For the ease of reading, we recall here its definition
@@ -921,6 +982,52 @@ C_{\Pi} : & [0,1]^d & \longrightarrow & [0,1] \\
 			\mathbb{P}\left\{ \textbf{X} \leq \textbf{x} \right\} &= \Pi_{k=1}^K \mathbb{P}\left\{ X_{i_{k,1}} \leq x_{i_{k,1}}, \dots, X_{i_{k,d_k}} \leq x_{i_{k,d_k}} \right\} \\ &= \Pi_{k=1}^K C^{(k)}\left(G_{i_{k,1}}(x_{i_{k,1}}), \dots, X_{i_{k,d_k}} \leq x_{i_{k,d_k}} \right) \\ &= C(G_1(x_1), \dots, G_d(x_d)).
 		\end{align*}
 		Hence the result.
+	\end{proof}
+	
+	\subsection{Glivencko-Cantelli of the copula with known margins}
+	
+	In this Section, we will prove the empirical estimator of the copula $C_m$ based on the sample $\textbf{U}_{m,1},\dots, \textbf{U}_{m,k}$. For that purpose, the Berbee's coupling lemma is of prime interest (see, e.g., Chapter 5 in \cite{rio2017asymptotic}) which gives an approximation of the original process by conveniently defined independent random variables.
+	
+	\begin{lemma}
+	\label{lem:gc}
+		Under the conditions of Proposition, we have
+		\begin{equation*}
+			||C_{n,m}^o - C ||_{\infty} \overunderset{\textrm{a.s.}}{n \rightarrow \infty}{\longrightarrow} 0.
+		\end{equation*}
+	\end{lemma}
+	\begin{proof}[Proof of Lemma \ref{lem:gc}]
+		Using triangle inequality, one obtain the following bound
+		\begin{equation*}
+			||C_{n,m}^o - C ||_{\infty} \leq ||C_{n,m}^o - C_m ||_{\infty} + ||C_m - C ||_{\infty}.
+		\end{equation*}
+		As $\{C_m, n \in \mathbb{N}\}$ is an equicontinuous class of functions, defined on the compact set $[0,1]^d$ (by Tychonov's theorem) which converges pointwise to $C$ by Condition \ref{ass:domain}, we obtain that the convergence is uniform over $[0,1]^d$.
+		
+		Now, let us prove that $||C_{n,m}^o - C_m ||_{\infty}$ converges almost surely to $0$. By Berbee's coupling lemma (see Theorem 6.1  in \cite{rio2017asymptotic} or Theorem 3.1 in \cite{bucher2014extreme} for similar applications), we can construct inductively a sequence $(\bar{X}_{im+1},\dots, \bar{X}_{im+m})_{i \geq 0}$ such that the following three properties hold:
+		\begin{enumerate}[label=(\roman*)]
+			\item $(\bar{X}_{im+1},\dots, \bar{X}_{im+m}) \overset{d}{=} (X_{im+1},\dots, X_{im+m})$ for any $i \geq 0$; \label{property:law}
+			\item both $(\bar{X}_{2im+1},\dots, \bar{X}_{2im+m})_{i\geq 0}$ and $(\bar{X}_{(2i+1)m+1},\dots, \bar{X}_{(2i+1)m+m})_{i\geq 0}$ are i.i.d sequences; \label{property:iid}
+			\item $\mathbb{P}\{(\bar{X}_{im+1},\dots, \bar{X}_{im+m}) \neq (X_{im+1}, \dots, X_{im+m}) \} \leq \beta(m)$. \label{property:mixing}
+		\end{enumerate}
+		Let $\bar{C}_{n,m}^o$ and $\bar{U}_{m,i}$ be defined analogously to $C_{n,m}^o$ and $U_{m,i}$ respectively but with $\textbf{X}_1,\dots, \textbf{X}_n$ replaced with $\bar{\textbf{X}}_1,\dots, \bar{\textbf{X}}_n$. Now write
+		\begin{equation}
+			\label{eq:coupling}
+			C_{n,m}^o(\textbf{u}) = \bar{C}_{n,m}^o(\textbf{u}) + \left\{ C_{n,m}^o(\textbf{u}) - \bar{C}_{n,m}^o(\textbf{u}) \right\}.
+		\end{equation}
+		We will show below that the term under brackets converges uniformly to $0$ almost surely. Write $\bar{C}_{n,m}^o(\textbf{u}) = \bar{C}_{n,m}^{o,\textrm{odd}}(\textbf{u}) + \bar{C}_{n,m}^{o,\textrm{even}}(\textbf{u})$ where $\bar{C}_{n,m}^{o,\textrm{odd}}(\textbf{u})$ and $\bar{C}_{n,m}^{o,\textrm{even}}(\textbf{u})$ are defined as sums ovr the odd and even summands of $\bar{C}_{n,m}^o(\textbf{u})$, respectively. Since both of these sums are based on i.i.d. summands by property \ref{property:iid}, we have $||\bar{C}^o_{n,m} - C_m ||_{\infty} \overunderset{\textrm{a.s.}}{n \rightarrow \infty}{\longrightarrow} 0$ using Glivencko-Cantelli (as $(\mathds{1}_{\{ ]-\infty, \textbf{u}] \}})_{\textbf{u} \in [0,1]^d}$ are Glivencko-Cantelli classes of function, see Chapter 2.5 of \cite{bestbook}) and property \ref{property:law}.
+		
+		It remains to control the term under brackets on the right hand side of \eqref{eq:coupling}, we have that
+		\begin{align*}
+			\left| C_{n,m}^o(\textbf{u}) - \bar{C}_{n,m}^o(\textbf{u}) \right| &\leq \frac{1}{k} \sum_{i=1}^k \left| \mathds{1}_{ \{\bar{U}_{m,i} \leq u \}} - \mathds{1}_{\{ U_{m,i} \leq u \}} \right| \leq \frac{1}{k} \sum_{i=1}^k \mathds{1}_{\{ ((\bar{X}_{im+1},\dots, \bar{X}_{im+m}) \neq (X_{im+1}, \dots, X_{im+m}) \}}.
+		\end{align*}
+		Hence, using Markov's inequality and property \ref{property:mixing}, we have
+		\begin{equation*}
+			\mathbb{P}\left\{ \underset{u \in [0,1]^d}{\sup} \left| \bar{C}_{n,m}^o(\textbf{u}) - C_{n,m}^o(\textbf{u}) \right| > \epsilon \right\} \leq \frac{\beta(m)}{\epsilon}.
+		\end{equation*}
+		Thus by Condition \ref{ass:regularity}\ref{ass:series},
+		\begin{equation*}
+		\sum_{n \geq 1 }\mathbb{P}\left\{ \underset{u \in [0,1]^d}{\sup} \left| \bar{C}_{n,m}^o(\textbf{u}) - C_{n,m}^o(\textbf{u}) \right| > \epsilon \right\} < \infty.
+		\end{equation*}
+		Applying Borel-Cantelli gives the statement.
 	\end{proof}
 	
 	\subsection{Proof of proposition \ref{prop:concentration_inequality}}
