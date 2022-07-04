@@ -769,7 +769,7 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 	\begin{proof}[Proof of Theorem \ref{thm:weak_conv}]
 		The proof is straightforward, notice that (see Figure \ref{fig:diagram})
 		\begin{equation*}
-			\mathcal{E}_{nK} = \psi \circ \phi \left(\sqrt{n}(\hat{\theta}_n - \theta) \right),
+			\mathcal{E}_{nK} = \psi \circ \phi \left(\sqrt{n}(\hat{\nu}_{n,m} - \nu) \right),
 		\end{equation*}
 		where $\phi$ is detailed as
 		\begin{equation*}
@@ -801,12 +801,12 @@ C_\Pi : & [0,1]^d & \longrightarrow & [0,1] \\
 		\begin{figure}
 		\centering
 			\begin{tikzpicture}[node distance=2cm, auto]
-				\node (A) {$\sqrt{n}\left(\hat{A}_n - A\right)$};
-				\node(B) [right of=A] {$\mathcal{E}_{nK}$};
-				\node (C) [below of=A] {$\left(\sqrt{n}\left(\hat{A}_n - A\right) ; w_1\sqrt{n}\left(\hat{A}_{n1} - A_{1}\right), \dots, w_k(\textbf{t})\sqrt{n}\left(\hat{A}_{nk} - A^{(O_k)}\right)\right)$};	
+				(0,0) \node(A) {$\sqrt{n}\left(\hat{A}_{n,m} - A\right)$};
+				(5,0)\node(B) [right of=A, xshift = 1cm ] {$\mathcal{E}_{nK}$};
+				\node (C) [below of=B] {$\left(\sqrt{n}\left(\hat{A}_{n,m} - A\right) ; w_1\sqrt{n}\left(\hat{A}_{n,m}^{(O_1)} - A^{(O_1)}\right), \dots, w_k(\textbf{t})\sqrt{n}\left(\hat{A}_{n,m}^{(O_k)} - A^{(O_k)}\right)\right)$};	
 				\draw[->](A) to node {}(B);
 				\draw[->](A) to node [left] {$\phi$}(C);
-				\draw[->](C) to node [below=0.5ex] {$\psi$}(B);
+				\draw[->](C) to node [below right=0.5ex] {$\psi$}(B);
 			\end{tikzpicture}
 			\caption{Diagram of composition of function.}
 			\label{fig:diagram}
